@@ -61,7 +61,8 @@
 
 
 \usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
-
+% 重新定义 \seename
+\renewcommand*{\seename}{见}
 
 \GlsXtrLoadResources[
 src={oldman},
@@ -75,14 +76,14 @@ sort-field={name}
 % 防止溢出。使用方法为
 % \dingphotoh{photo1name}{photo1cap}{photo1description}{photo2name}{photo2cap}{photo2description}
 \newcommand{\dingphotoh}[6] {
-  \begin{figure}[!ht]
+  \begin{figure}[htbp!]
     \centering
-    \includegraphics[width=0.8\textwidth]{fish/#1}
+    \includegraphics[width=0.73\textwidth]{fish/#1}
     \caption{#2}\label{fig:#1}
     \raggedright\small #3
     \vfill \vspace{1cm}
     \centering
-    \includegraphics[width=0.8\textwidth]{fish/#4}
+    \includegraphics[width=0.73\textwidth]{fish/#4}
     \caption{#5}\label{fig:#4}
     \raggedright\small #6
   \end{figure}
@@ -167,7 +168,9 @@ sort-field={name}
 
 \dingphotoh{dolphin}{dolphin, 鲯鳅}{体较大且延长侧扁，前部高大，向后渐变细。
   头大，背部很窄，成鱼头背几呈方形，额部有一骨质隆起，随成长而越明显，尤以雄
-  鱼为甚。}{flying}{flying fish, 飞鱼}{体态修长，稍稍侧扁，长度一般为45厘米。吻短，口小，眼大。胸鳍发达如翼，腹鳍也比较发达，尾鳍的下叶要比上叶长。由尾部迅速摆动，可达到极大的速度，然后跃出水面，张开胸鳍，可滑行百米以上的距离。}
+  鱼为甚。}{flying}{flying fish, 飞鱼}{体态修长，稍稍侧扁，长度一般为45厘米。
+  吻短，口小，眼大。胸鳍发达如翼，腹鳍也比较发达。借由尾部迅速摆动，可达到极大
+  的速度，然后跃出水面，张开胸鳍，可滑行百米以上的距离。}
 
 
 \dingphotoh{Makoshark}{Mako shark, 鲭鲨}{老人碰见和杀死的第一条鲨鱼。身体光滑
@@ -191,20 +194,21 @@ was now \gls{definitely} and finally \emph{salao}\footnote{源自西班牙
   不幸的意思}, and the boy had gone \uline{at their orders}\footnote{听从他们
   （父母）的命令} in another boat which caught three good fish the first
 week. It made the boy sad to see the old man come in each day with his
-\gls{skiff} empty and he always went down to help him carry \uline{either} the
+skiff empty and he always went down to help him carry \uline{either} the
 \gls{coiled} lines \uline{or}\footnote{either \ldots{} or, 或者……或者……，要
   么……要么……} the \gls{gaff} and \gls{harpoon} and the \gls{sail} that was
-\gls{furled} around the \gls{mast}. The \gls{sail} was patched with flour
-\glspl{sack} and, \gls{furled}, it looked like the flag of \gls{permanent} defeat.
+\gls{furled} around the \gls{mast}. The sail was patched with \gls{flour}
+\glspl{sack} and, \gls{furled}, it looked like the flag of \gls{permanent} \gls{defeat}.
 
 The old man was thin and \gls{gaunt} with deep \glspl{wrinkle} in the back
-of his neck. The brown \glspl{blotch} of the benevolent \gls{skin} cancer the sun
-\glspl{bring} from its \gls{reflection} on the tropic sea were on his cheeks. The
-blotches ran well down the sides of his face and his hands had the
-\gls{deep-creased} \glspl{scar} from handling heavy fish on the
-\glspl{cord}. But none of these scars were fresh. They were \gls{as} old as
-\glspl{erosion} in a fishless desert\footnote{无鱼沙漠中的侵蚀。将伤疤与无鱼
-  沙漠侵蚀联系在一起。无鱼沙漠对应捕鱼人的身份，突出其凄凉。}.
+of his neck. The brown \glspl{blotch} of the \gls{benevolent} \gls{skin}
+cancer \uline{the sun \glspl{bring} from its \gls{reflection} on the
+  \gls{tropic} sea}\footnote{前面省略了关系代词that。本从句修饰blotch.} were
+on his cheeks. The blotches ran well down the sides of his face and his
+hands had the \gls{deep-creased} \glspl{scar} from handling heavy fish on
+the \glspl{cord}. But none of these scars were fresh. They were \gls{as} old
+as \glspl{erosion} in a fishless desert\footnote{无鱼沙漠中的侵蚀。将伤疤与无
+  鱼沙漠侵蚀联系在一起。无鱼沙漠对应捕鱼人的境遇，突出其凄凉。}.
 
 Everything about him was old \gls{except} his eyes and they were the same
 color as the sea and were \gls{cheerful} and \gls{undefeated}.
@@ -218,7 +222,9 @@ The old man had taught the boy to fish and the boy loved him.
 
 ``But remember how you went eighty-seven days without fish and then we caught big ones every day for three weeks.''
 
-``I remember,'' the old man said. ``I know you did not leave me because you \gls{doubted}.''
+``I remember,'' the old man said. ``I know you did not leave me because you
+\gls{doubted}.''\footnote{同样文字，不同语调节奏，会使句子产生不一样的含义，
+  各国语言皆是。尝试用不同语调节奏朗读本句并且表露不同意思。}
 
 ``It was papa made me leave. I am a boy and I must \gls{obey} him.''
 
@@ -236,13 +242,14 @@ They sat on the Terrace and many of the fishermen made fun of the old man
 and he was not angry. Others, of the older fishermen, looked at him and were
 sad. But they did not show it and they spoke \gls{politely} about the
 \gls{current} and the \glspl{depth} they had \gls{drifted} their lines at
-and the \gls{steady} good weather and of what they had seen. The successful
-fishermen of that day were already in and had \gls{butchered} their
-\gls{marlin} out and carried them \gls{laid} full length across two \glspl{plank},
-with two men staggering at the end of each plank, to the fish house
-where they waited for the ice truck to carry them to the market in Havana.
-Those who had caught \glspl{shark} had taken them to the \gls{shark} factory
-on the other side of the \gls{cove} where they were \gls{hoisted} on a
+and the \gls{steady} good weather and of what they had seen.\footnote{其他老
+  渔夫们所谈四件事均是为暖老人心。} The successful fishermen of that day
+were already in and had \gls{butchered} their \gls{marlin} out and carried
+them \gls{laid} full length across two \glspl{plank}, with two men
+\gls{staggering} \uline{at the end of} each plank, to the fish house where
+they waited for the ice truck to carry them to the market in Havana. Those
+who had caught \glspl{shark} had taken them to the shark factory on
+the other side of the \gls{cove} where they were \gls{hoisted} on a
 \gls{block} and \gls{tackle}, their \glspl{liver} removed, their \glspl{fin}
 cut off and their \glspl{hide} \gls{skinned} out and their \gls{flesh} cut
 into \glspl{strip} for salting.
@@ -254,7 +261,8 @@ and it was \gls{pleasant} and sunny on the Terrace.
 
 ``Santiago,'' the boy said.
 
-``Yes,'' the old man said. He was holding his glass and \textbf{thinking of} many years ago.
+``Yes,'' the old man said. He was holding his glass and \uline{thinking of}
+many years ago.
 
 ``Can I go out to get \glspl{sardine} for you for tomorrow?''
 
@@ -274,19 +282,19 @@ you remember?''
 
 ``I can remember the tail \gls{slapping} and \gls{banging} and the \gls{thwart}
 breaking and the noise of the \gls{clubbing}. I can remember you throwing me into
-the \gls{bow} where the wet \gls{coiled} lines were and feeling the whole boat \gls{shiver}
+the \gls{bow} where the wet coiled lines were and feeling the whole boat \gls{shiver}
 and the noise of you \gls{clubbing} him like \gls{chopping} a tree down and the \gls{sweet}
 blood smell all \gls{over} me.''
 
 ``Can you really remember that or did I just tell it to you?''
 
-``I remember everything \uline{from when} we first went together.''
+``I remember everything from \uline{when we first went together}.''
 
 The old man looked at him with his sun-burned, \gls{confident} loving eyes.
 
 ``If you were my boy I'd take you out and \gls{gamble},'' he said. ``But you are your father's and your mother's and you are in a lucky boat.''
 
-``May I get the \glspl{sardine}? I know where I can get four \glspl{bait} too.''
+``May I get the sardines? I know where I can get four \glspl{bait} too.''
 
 ``I have mine left from today. I put them in salt in the box.''
 
@@ -300,9 +308,10 @@ The old man looked at him with his sun-burned, \gls{confident} loving eyes.
 
 ``I would,'' the boy said. ``But I bought these.''
 
-``Thank you,'' the old man said. He was too simple to \gls{wonder} when he
-had \gls{attained} \gls{humility}. But he knew he had \gls{attained} it and he knew it
-was not \gls{disgraceful} and it carried no loss of true \gls{pride}.
+``Thank you,'' the old man said. He was \uline{too} simple \uline{to}
+\gls{wonder} when he had \gls{attained} \gls{humility}. But he knew he had
+attained it and he knew it was not \gls{disgraceful} and it carried no loss
+of true \gls{pride}.
 
 ``Tomorrow is going to be a good day with this current,'' he said.
 
@@ -314,7 +323,7 @@ was not \gls{disgraceful} and it carried no loss of true \gls{pride}.
 
 ``He does not like to work too far out.''
 
-``No,'' the boy said. ``But I will see something that he cannot see such as a bird working and get him to come out after dolphin.''
+``No,'' the boy said. ``But I will see something that he cannot see such as a bird working and get him to come out after \gls{dolphin}.''
 
 ``Are his eyes that bad?''
 
@@ -644,7 +653,7 @@ the dark, barefoot men were moving, carrying the masts of their boats.
 
 When they \gls{reached} the old man's shack the boy took the rolls of line
 in the basket and the harpoon and gaff and the old man carried the mast with
-the \gls{furled} sail on his shoulder.
+the furled sail on his shoulder.
 
 ``Do you want coffee?'' the boy asked.
 
@@ -980,8 +989,8 @@ boat. He reached out for the line and held it softly between the \gls{thumb}
 and \gls{forefinger} of his right hand. He felt no \gls{strain} nor weight
 and he held the line lightly. Then it came again. This time it was a
 \gls{tentative} pull, not \gls{solid} nor heavy, and he knew exactly what it
-was. One hundred fathoms down a \gls{marlin} was eating the sardines that
-covered the point and the shank of the hook where the hand-\gls{forged} hook
+was. One hundred fathoms down a marlin was eating the sardines that covered
+the point and the shank of the hook where the hand-\gls{forged} hook
 projected from the head of the small tuna.
 
 The old man held the line delicately, and softly, with his left hand,

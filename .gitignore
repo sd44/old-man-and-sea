@@ -5,6 +5,9 @@ data/auto/
 figures/dingjia-orig/*
 */*.swp
 *.tdo
+*.glg
+*.glstex
+*.out
 *.aux
 *.bbl
 *.bbl-SAVE-ERROR
@@ -21,7 +24,6 @@ figures/dingjia-orig/*
 *.rel
 *.lof
 *.lot
-main.pdf
 sample_project.css
 lwarp*
 *html*
