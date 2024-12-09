@@ -58,6 +58,7 @@
 \UseTblrLibrary{booktabs}
 \UseTblrLibrary{nameref}
 
+\RequirePackage{emptypage} %空白页没有页眉页脚
 
 
 \usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
@@ -151,20 +152,29 @@ sort-field={name}
 \begin{document}
 
 \maketitle
+\ctexset{chapter/numbering=false}
 
 %% 目录
 \tableofcontents
 
-\chapter*{《老人与海》中出现的鱼}
-\addcontentsline{toc}{chapter}{《老人与海》中出现的鱼}
+\chapter{《老人与海》中的海岸和鱼}
 
-参考自豆瓣 cocojamboo所写文章。
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fish/coast.png}
+  \caption{\label{fig:coast}海滨各部分图例}
+\end{figure}
+\clearpage
+
+% 参考自豆瓣 。
+
+鱼类介绍有参考豆瓣cocojamboo文章
 
 \url{https://book.douban.com/subject/1064275/discussion/616533832/}
 
-\dingphotoh{marlin}{marlin, 枪鱼，马林鱼}{老人捕获的马林鱼身长十八尺（5.48米），体
-  重一千五百磅（680公斤）}{tuna}{tuna, 金枪鱼}{活跃而敏捷的食肉动物，拥有光滑
-  的流线型身体，也是游动速度最快的远洋鱼类之一。}
+\dingphotoh{marlin}{marlin, 枪鱼，马林鱼}{老人捕获的马林鱼身长十八尺
+  （5.48米），体重一千五百磅（680公斤）}{tuna}{tuna, 金枪鱼}{活跃而敏捷的食肉
+  动物，拥有光滑的流线型身体，也是游动速度最快的远洋鱼类之一。}
 
 \dingphotoh{dolphin}{dolphin, 鲯鳅}{体较大且延长侧扁，前部高大，向后渐变细。
   头大，背部很窄，成鱼头背几呈方形，额部有一骨质隆起，随成长而越明显，尤以雄
@@ -181,8 +191,7 @@ sort-field={name}
   中等大小，双颚两侧各有14排牙齿，其最长可达3.0米（9.8英尺），体重可达85.5公
   斤，寿命可达24年。}
 
-\chapter*{The Old Man and the Sea}
-\addcontentsline{toc}{chapter}{The Old Man and the Sea}
+\chapter{The Old Man and the Sea}
 
 He was an old man who fished alone in a \gls{skiff} in \uline{the \Gls{gulf}
   \Gls{stream}}\footnote{墨西哥湾} and he had gone eighty-four days now without
@@ -343,19 +352,18 @@ are good.''
 
 ``Let us take the \gls{stuff} home,'' the boy said. ``So I can get the \gls{cast} net and go after the sardines.''
 
-They picked up the \gls{gear} from the boat. The old man carried the
-mast on his \gls{shoulder} and the boy carried the wooden boat with
-the coiled, hard-\gls{braided}\footnote{复合词。hard在这里作“坚实的，牢固
-  的”。因为名词短语中的前置修饰语部分只容单个功能词位置，所以将两词
-  用 hyphen - 连接复合。“牢固编织的”} brown lines, the \gls{gaff} and the
-harpoon with its \gls{shaft}. The box with the baits was under the
-\gls{stern} of the \gls{skiff} along with the club that was used to
-\gls{subdue} the big fish when they were brought \gls{alongside}. No one
-would \gls{steal} from the old man but it was better to take the \gls{sail}
-and the heavy lines home as the \gls{dew} was bad for them and, though he
-was quite sure no local people would steal from him, the old man thought
-that a gaff and a harpoon were \gls{needless} \glspl{temptation} to leave in
-a boat.
+They picked up the \gls{gear} from the boat. The old man carried the mast on
+his \gls{shoulder} and the boy carried the wooden boat with the coiled,
+hard-\gls{braided}\footnote{复合词。hard在这里作“坚实的，牢固的”。因为名词
+  短语前置修饰语部分中，一个修饰成分只能是单个词，所以将两词用 hyphen - 连接
+  复合。“牢固编织的”} brown lines, the gaff and the harpoon with its
+\gls{shaft}. The box with the baits was under the \gls{stern} of the
+skiff along with the club that was used to \gls{subdue} the big fish
+when they were brought \gls{alongside}. No one would \gls{steal} from the
+old man but it was better to take the sail and the heavy lines home \uline{as
+the \gls{dew} was bad for them} and, though he was quite sure no local people
+would steal from him, the old man thought that a gaff and a harpoon were
+\gls{needless} \glspl{temptation} to leave in a boat.
 
 They walked up the road together to the old man's \gls{shack} and
 \uline{went in} \uline{through its open door}. The old man \gls{leaned} the
@@ -473,14 +481,15 @@ The old man opened his eyes and for a moment he was coming back \uline{from
 
 ``I have,'' the old man said getting up and taking the newspaper and \gls{folding} it. Then he started to fold the blanket.
 
-``Keep the blanket around you,'' the boy said. ``You'll not fish without eating while I'm alive.''
+``Keep the blanket around you,'' the boy said. ``\uline{You'll not fish without
+eating while I'm alive.}''
 
 ``Then live a long time and take care of yourself,'' the old man said. ``What are we eating?''
 
 ``Black beans and rice, \gls{fried} bananas, and some \gls{stew}.''
 
 The boy had brought them in a two\gls{-decker} metal container from the
-Terrace. The two \gls{sets} of knives and forks and spoons were in his pocket with
+Terrace. The two \gls{sets} of knives and forks and \glspl{spoon} were in his pocket with
 a paper \gls{napkin} wrapped around each set.
 
 ``Who gave this to you?''
@@ -495,7 +504,7 @@ a paper \gls{napkin} wrapped around each set.
 
 ``I think so.''
 
-``I must give him something more than the belly meat then. He is very thoughtful for us.''
+``I must give him something more than the belly meat then. He is very \gls{thoughtful} for us.''
 
 ``He sent two beers.''
 
@@ -503,7 +512,7 @@ a paper \gls{napkin} wrapped around each set.
 
 ``I know. But this is in bottles, Hatuey beer, and I take back the bottles.''
 
-``That's very kind of you,'' the old man said. ``Should we eat?''
+``That\uline{'s very kind of} you,'' the old man said. ``Should we eat?''
 
 ``I've been asking you to,'' the boy told him gently. ``I have not wished to open the container until you were ready.''
 
@@ -513,7 +522,7 @@ Where did you wash? the boy thought. The village water \gls{supply} was
 \uline{two streets down the road}\footnote{沿着这条路走两条街。}. I must have water here for him, the boy
 thought, and \gls{soap} and a good \gls{towel}. Why am I so
 \gls{thoughtless}? I must get him another shirt and a jacket for the winter
-and some sort of shoes and another blanket.
+and some \uline{sort of} shoes and another blanket.
 
 ``Your stew is excellent,'' the old man said.
 
@@ -535,7 +544,7 @@ Sisler and those great drives in the old park.''
 
 ``Do you remember \uline{when he used to come to the Terrace}\footnote{名词性疑问从句}?''
 
-``I wanted to take him fishing but I was too \uline{timid} to ask him. Then I
+``I wanted to take him fishing but I was too \gls{timid} to ask him. Then I
 asked you to ask him and you were too timid.''
 
 ``I know. It was a great \gls{mistake}. He might have gone with us. Then we
@@ -564,9 +573,11 @@ drinking. His mind was on \glspl{horse} as well as baseball. \Gls{at_least}
 he carried lists of horses at all times in his pocket and \gls{frequently}
 spoke the names of horses on the telephone.''
 
-``He was a great manager,'' the boy said. ``My father thinks he was the greatest.''
+``He was a great manager,'' the boy said. ``My father \uline{thinks he was the greatest}.''
 
-``Because he came here the most times,'' the old man said. ``If Durocher had continued to come here each year your father would \uline{think him the greatest manager}.''
+``Because he came here the most times,'' the old man said. ``If Durocher had
+continued to come here each year your father would \uline{think him the
+  greatest manager}\footnote{试比较本句与上句thinks he was the greatest的区别。}.''
 
 ``Who is the greatest manager, really, Luque or Mike Gonzalez?''
 
@@ -586,7 +597,8 @@ he will prove us wrong.\footnote{我希望不会出现一条太大的鱼以证�
 
 ``I may not be as strong as I think,'' the old man said. ``But I know many tricks and I have \gls{resolution}.''
 
-``You ought to go to bed now so that you will be \gls{fresh} in the morning. I will take the things back to the Terrace.''
+``You \uline{ought to} go to bed now so that you will be \gls{fresh} in the
+morning. I will take the things back to the Terrace.''
 
 ``Good night then. I will wake you in the morning.''
 
@@ -621,11 +633,12 @@ the smell of Africa that the land breeze brought at morning.
 
 Usually when he smelled the land breeze he woke up and dressed to go and
 wake the boy. But tonight the smell of the land breeze came very early and
-he knew it was too early in his dream and went on dreaming to see the white
-peaks of the Islands rising from the sea and then he dreamed of the
-different harbours and roadsteads of the Canary Islands.
+he knew it was too early in his dream and went on\footnote{go on, 继续，坚
+  持。} dreaming to see the white peaks of the Islands rising from the sea
+and then he dreamed of the different harbours and roadsteads of the Canary
+Islands.
 
-He no longer dreamed of storms, nor of women, nor of great occurrences, nor
+He no longer dreamed of storms, nor of women, nor of great \glspl{occurrence}, nor
 of great fish, nor fights, nor contests of \gls{strength}, nor of his wife. He
 only dreamed of places now and of the lions on the beach. They played like
 young cats in the dusk and he loved them as he loved the boy. He never
@@ -694,7 +707,7 @@ newspaper and they went down the \gls{trail} to the skiff, feeling the
 \gls{leaning} forward against the \gls{thrust} of the \glspl{blade} in the
 water, he began to row out of the harbour in the dark. There were other
 boats from the other beaches going out to sea and the old man heard the
-\gls{dip} and push of their oars even though he could not see them now the
+\uline{\gls{dip} and push} of their oars even though he could not see them now the
 moon was below the hills.
 
 Sometimes someone would speak in a boat. But most of the boats were silent
@@ -708,7 +721,7 @@ the fishermen called the great well because there was a \gls{sudden} deep
 of seven hundred \glspl{fathom} where all sorts of fish \gls{congregated}
 because of the \gls{swirl} the current made against the steep walls of the
 floor of the ocean. Here there were \glspl{concentration} of \gls{shrimp} and
-\gls{bait} fish and sometimes \glspl{school} of \gls{squid} in the deepest
+bait fish and sometimes \glspl{school} of \gls{squid} in the deepest
 holes and these \gls{rose} \gls{close_to} the \gls{surface} at night where
 all the \gls{wandering} fish fed on them\footnote{fed on them, 以他们为
   食。fed, feed的过去式，喂养，饲养。}.
@@ -770,14 +783,14 @@ two deepest lines like \glspl{plummet} and, on the others, he had a big blue
   氏若鲹鱼。} that had been used before; but they were in good
 \gls{condition} still and had the \gls{excellent} sardines to give them
 \gls{scent} and \gls{attractiveness}. Each line, as \gls{thick} around as a
-big pencil, was looped onto a green-sapped \gls{stick}\footnote{a green-sapped
-  stick, 绿干枝。sapped有一个较少用到的意思，to drain the sap from sth, 把树
-  的汁液排干。} so that any pull or touch on the bait would make the stick
-dip and each line had two forty-fathom coils which could be made
-fast\footnote{\footnote{这里的fast是古旧用法，表示 ``securely attached/
-    firmly tied'' “牢固绑定，系牢的”意思。后文还会多次出现。} } to the
-other \gls{spare} coils so that, if it were necessary, a fish could take out
-over three hundred fathoms of line.
+big pencil, was looped onto a green-sapped \gls{stick}\footnote{a
+  green-sapped stick, 绿干枝。sapped有一个较少用到的意思，to drain the sap
+  from sth, 把树的汁液排干。} so that any pull or touch on the bait would
+make the stick dip and each line had two forty-fathom coils which could be
+made fast\footnote{这里的fast是古旧用法，表示 ``securely attached/ firmly
+  tied'' “牢固绑定，系牢的”意思。后文还会多次出现。} to the other
+\gls{spare} coils so that, if it were necessary, a fish could take out over
+three hundred fathoms of line.
 
 Now the man watched the dip of the three sticks over the side of the skiff
 and rowed gently to keep the lines straight up and down and at their \gls{proper}
@@ -2294,7 +2307,7 @@ stern \textbf{he sailed south-west}\footnote{本句有四个独立分句，其�
 
 He did not need a \gls{compass} to tell him where south-west was. He only
 needed the feel of the trade wind and the drawing of the sail. I better put
-a small line out with a \gls{spoon} on it and try and get something to eat
+a small line out with a spoon on it and try and get something to eat
 and drink for the \gls{moisture}. But he could not find a spoon and his
 sardines were rotten. So he hooked a patch of yellow Gulf weed with the gaff
 as they passed and shook it so that the small shrimps that were in it fell
