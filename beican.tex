@@ -1,0 +1,1016 @@
+\ExplSyntaxOn
+\clist_map_inline:nn { fp, int, dim, skip, muskip }
+{
+  \cs_generate_variant:cn { #1_set:Nn }  { NV }
+  \cs_generate_variant:cn { #1_gset:Nn } { NV }
+}
+\ExplSyntaxOff
+
+\documentclass[fontset=ubuntu, zihao=5]{ctexart}
+\usepackage{xeCJKfntef}
+
+% \usepackage{imakeidx}
+% \indexsetup{level=\section*, toclevel=section}
+% \makeindex[title=索引, columns=2, intoc, columnseprule=true]
+
+\usepackage{amsmath}
+\usepackage[math-style=ISO, bold-style=ISO]{unicode-math} %注意，unicode-math与被其认为过时的bm包不兼容，不要\RequirePackage{bm}
+\setmathfont[Scale = 1.1]{TeX Gyre Pagella Math}  % 因Libertinus目前的数学字体暂还没
+% 有粗体，这里设置为允许伪粗体渲染。
+
+\setmainfont[Scale=1.1]{TeX Gyre Pagella}
+\setsansfont[Scale=1.1]{TeX Gyre Heros}
+\setmonofont{Noto Sans Mono Condensed}
+
+\newcommand\doulos[1]{{\fontspec{Doulos SIL} /#1/}}
+
+\usepackage{microtype} % 改善单词、字母间距
+\usepackage{verse}
+
+% from package hyperref
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks = true,
+  citecolor=magenta,
+  linkcolor=blue,
+  bookmarks=true,
+  bookmarksnumbered = true,
+  bookmarksdepth = section,
+  bookmarksopen = true,
+  pdftitle = {悲惨世界（书虫1级）},
+  pdfauthor = {蛋疼的蛋蛋},
+  pdfcreator = {sd44sd44@yeah.net},
+}
+
+
+\usepackage{geometry}
+
+\geometry{%
+  a4paper,
+  heightrounded,
+  includemp = false, % includes the margin notes, \marginparwidth and \marginparsep, into body when calculating horizontal calculation.
+  inner = 2.7cm,
+  outer = 2.2cm,
+  % marginparwidth = 80pt,
+  top = 2.5cm,
+  bottom = 2.5cm,
+  headheight = 6mm,
+  headsep = 10mm,
+  footskip = 10mm,
+}
+
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{unicode-math}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{emptypage}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{nameref}
+
+\usepackage{emptypage} %空白页没有页眉页脚
+\usepackage{paracol}
+\footnotelayout{p}
+
+
+\usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
+% 重新定义 \seename
+\renewcommand*{\seename}{见}
+
+\GlsXtrLoadResources[
+src={beican},
+selection=all,
+sort={en-GB},
+sort-field={name}
+]
+\renewcommand{\glossarypreamble}{\footnotesize}
+
+% 自定义图片环境，包含纵向两个图片。注意这一自定义命令限制较多，需调整参数，
+% 防止溢出。使用方法为
+% \dingphotoh{photo1name}{photo1cap}{photo1description}{photo2name}{photo2cap}{photo2description}
+\newcommand{\dingphotoh}[6] {
+  \begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.73\textwidth]{fish/#1}
+    \caption{#2}\label{fig:#1}
+    \raggedright\small #3
+    \vfill \vspace{1cm}
+    \centering
+    \includegraphics[width=0.73\textwidth]{fish/#4}
+    \caption{#5}\label{fig:#4}
+    \raggedright\small #6
+  \end{figure}
+  \clearpage
+}
+
+
+\newlength{\drop}% for my convenience
+
+\makeatletter
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\@subtitle{\@latex@warning{No \noexpand\subtitle given}}
+
+% \def\authornick#1{\gdef\@authornick{#1}}
+% \def\@authornick{\@latex@warning{No \noexpand\authornick given}}
+
+% \def\authorurl#1{\gdef\@authorurl{\url{#1}}}
+% \def\@authorurl{\@latex@warning{No \noexpand\authorurl given}}
+
+
+\def\maketitle{%
+  \thispagestyle{empty}
+  \null
+  \begingroup
+  \drop = 0.2\textheight
+  \centering
+  \vspace*{0.6\drop}
+  {\Huge \bfseries \@title}\\[2\baselineskip]
+  {\huge \bfseries \itshape \@subtitle}\\[3\baselineskip]
+
+  \vspace*{0.8\drop}
+  {
+    \centering
+    \Large
+    \begin{tblr}{colspec={cc}}
+      编\qquad 者： &  \@author \\
+      日\qquad 期： & \@date \\
+    \end{tblr}
+
+    \vspace*{0.1\drop}
+    \url{https://github.com/sd44/old-man-and-sea}
+
+    \vspace*{0.5\drop}
+    \kaishu{此书献给子墨、子韩和freemdict.com}
+  }
+  \vspace*{0.5\drop}
+
+  \endgroup
+  \vfill\null
+  \clearpage
+
+  \begingroup
+  \thispagestyle{empty}
+  \null
+  \newpage
+  \endgroup
+}
+\makeatother
+
+\title{The Old Man and the Sea（草稿）}
+\subtitle{词汇注解}
+\author{蛋疼的蛋蛋}
+\date{2024年12月}
+
+\begin{document}
+
+\maketitle
+% \ctexset{section/numbering=false}
+
+%% 目录
+\tableofcontents
+
+\setcolumnwidth{0.54\textwidth,0.44\textwidth}
+% \setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{2em}
+
+\begin{paracol}{2}
+
+
+  \section{LES MISÉRABLES}
+
+  France in the 1830s. The rich ride in carriages, and eat from gold plates. The poor have no work, no food, no hope – they are Les Misérables, and rebellion is in the air. France remembers the French Revolution in 1789, when the people built barricades in the streets of Paris, and the dead were counted in thousands. Is that time coming again?
+
+  \switchcolumn
+
+  \section*{《悲惨世界》内容简介}
+  19世纪30年代的法国。富人乘坐马车，用金餐具吃喝。穷人没有工作，没有食物，没有希望——他们是穷苦人，起义一触即发。法国人民还记得1789年的法国大革命。当时，民众在巴黎街头筑起街垒，死去的人数以千计。这样的时刻又要到来了吗？
+
+  \switchcolumn*
+
+  This is the story of Jean Valjean. A prisoner for nineteen years, now at last he is a free man. But how can he live, where can he find work? What hope is there for a man like him? It is also the story of Javert, a police inspector, a cruel man, a hard man. He wants one thing in life – to send Valjean back to prison. And it is Fantine's story too, Fantine and her daughter Cosette. How does their story change Valjean's life? And it is also Marius's story. He is a student in Paris, ready to die for the rebellion – or for love. And last, there is Gavroche – a boy of the Paris streets, with no home, no family, no shoes... But a boy with a smile on his face and a song in his heart.
+
+
+  \switchcolumn
+
+  这是冉阿让的故事。他坐了19年的牢，终于恢复了自由身。可是，他怎么生活，到哪里去找工作呢？像他这样一个人，还有什么希望呢？这也是沙威的故事，他是一个督察，一个残忍的人，一个冷酷的人。他的人生只有一个目标——把冉阿让再次送进大牢。这还是芳汀的故事，芳汀和她的女儿珂赛特。她们的故事是怎样改变了冉阿让的一生？这也是马吕斯的故事。他是巴黎的一名学生，做好了为起义而牺牲的准备——或是为爱情而死。最后，还有伽弗洛什——一个在巴黎街头流浪的孩子，他没有家，没有亲人，没有鞋穿……可他的脸上总是挂着笑容，心中总是有歌儿在欢唱。
+
+  \switchcolumn*
+
+  But we begin with Jean Valjean...
+
+
+  \switchcolumn
+
+  不过，我们要先从冉阿让讲起……
+
+\end{paracol}
+
+\clearpage
+
+\begin{paracol}{2}
+
+  \section{Jean Valjean}
+
+  \subsection{FOREWORD}
+
+  It is the year 1796, and the people of France are hungry. Not the rich people, of course. They have food, they have warm clothes, they have beautiful houses. No, it is the poor people of France...
+
+  \switchcolumn
+
+  \section*{冉阿让}
+  \subsection*{引言}
+
+  时为1796年，法国人民正在忍饥挨饿。当然，不包括那些富人。富人不缺食物，他们穿着暖和的衣服，住着漂亮的房子。法国的穷苦百姓却……
+
+  \switchcolumn*
+
+  Jean Valjean is one of these poor people. He is a young man, big, strong, and a good worker – but he has no work, he cannot find work, and he is hungry. He lives with his sister in the village of Brie. Her husband is dead, and she has seven children. It is a cold hard winter, and there is no food in the house. No bread, nothing – and seven children!
+
+  \switchcolumn
+  冉阿让是这些穷苦百姓中的一员。他年纪轻轻，块头大，身体壮，而且工作勤快——但是他没有工作，也找不到工作，只能饿着肚子。他和姐姐住在一个叫布里的村子里。姐姐死了丈夫，独自拉扯着七个孩子。这是一个严寒的冬天，家里没有吃的了。没有面包，什么都没有——却有七个孩子要养活！
+
+  \switchcolumn*
+
+  Jean Valjean is a good man, he is not a thief. But how can a man just sit there, when his sister's children cry all night because they are hungry? What can a man do?
+
+  \switchcolumn
+
+  冉阿让是个好人，他不是一个贼。但是，当姐姐的孩子们因为挨饿而整夜啼哭的时候，一个男子汉怎么能干坐在那儿呢？一个男子汉能做些什么呢？
+
+  \switchcolumn
+
+  He leaves his house at night, and goes down the village street. He puts his hand through the window of the bakery\footnote{\textbf{bakery}: n. a shop where bread and cakes are sold 面包店；糕饼店} – crash! – he takes a loaf\footnote{\textbf{loaf}: n. bread that is shaped and baked in one piece （面包的）一条} of bread, and he runs. He runs fast, but other people run faster.
+
+  \switchcolumn
+
+  他趁着夜色出了门，沿着村里的街道一直走。他打碎了面包店的橱窗——哗啦！然后伸手进去，拿起一条面包就跑。他跑得很快，但是有人跑得比他还快。
+
+  \switchcolumn*
+
+  France is not kind to poor people. France sends Jean Valjean to prison for five years. After four years he escapes\footnote{\textbf{escape}: v. to get away from a place 逃跑}. They find him, and bring him back. They give him six more years. Once again, he escapes, and two days later, they find him. And they give him another eight years. Nineteen years in prison --- for a loaf of bread!
+
+  \switchcolumn
+
+  法国不是个善待穷人的国家。冉阿让被判了五年监禁。坐了四年牢之
+  后，他越狱了。他们找到了他，把他抓了回来，又给他加了六年刑。他再次越狱，两
+  天后，他们抓到了他，这一回又给他加了八年刑。他坐了十九年的牢——就为了一条
+  面包!
+
+  \switchcolumn*
+
+  In 1815, when he leaves prison, Jean Valjean is a different man.
+  Prison changes people. Years of misery\footnote{\textbf{misery}: n. great suffering 痛苦，苦难}, years of back-breaking\footnote{\textbf{back-breaking}: adj. physically difficult and making you very tired 累死人的，非常繁重的} work, years
+  of cruel prison guards. These things change a man. Once there was love in
+  Jean Valjean's heart. Now, there is only hate.
+
+  \switchcolumn
+
+  1815年，冉阿让出狱的时候，已经不再是当初那个他了。监狱会改变一个人。年复一
+  年的悲惨境遇，年复一年累垮脊背的苦力活儿，年复一年监狱看守的残酷虐待，这些
+  都会改变一个人。从前，冉阿让的心里装的是爱。现在，他的心里只有
+  恨。
+
+  \switchcolumn*
+
+  \subsection{}
+
+  One evening in October, in the year 1815, there was a knock on the door of
+  the bishop\footnote{\textbf{bishop}: n. a priest with a high rank in some Christian churches 主教} of Digne's house.
+
+  'Come in,' said the bishop. The bishop was a kind man; everyone in the town of Digne knew that. Poor people, hungry people, miserable\footnote{\textbf{miserable}: adj. extremely unhappy 悲惨的；痛苦的} people – they all came to the door of the bishop's house.
+
+  \switchcolumn
+
+  \subsection*{}
+
+  1815年十月的一个晚上，迪涅主教的家门口响起了敲门声。
+
+  “请进。”主教说道。这位主教是个善良的人，住在迪涅镇上的每个人都知道。穷苦
+  的人，挨饿的人，生活不幸的人——他们都会来敲主教家的门。
+
+\switchcolumn*
+
+  The bishop's sister looked at the man at the door that night, and she was afraid.
+
+  'Look at him!' she whispered\footnote{\textbf{whisper}: v. to say something very quietly 低语，耳语} to the bishop. 'He is a big man, and a dangerous one. He carries a yellow card, so he was once a prisoner – a bad man.'
+
+  But the bishop did not listen. 'Come in, my friend,' he said to the man at the door. 'Come in. You must eat dinner with us, and sleep in a warm bed tonight.'
+
+\switchcolumn
+
+  那天晚上，主教的妹妹看着门口的那个男人，心里感到害怕。
+  “瞧瞧他！”她低声对主教说道，“他是个危险的大个子。他身上带着一张黄卡，说明他曾经是个囚犯——一个恶棍。”
+
+
+  但是主教没有理会她的话。“进来吧，我的朋友。”他对门口的男人说，“进来吧。您一定要和我们一起吃顿晚饭，然后今晚在暖和的床铺上睡一宿。”
+
+  \switchcolumn*
+
+  The man stared\footnote{\textbf{stare}: v. to look for a long time without moving your eyes 注视，盯着看} at the bishop. 'My name is Jean Valjean,' he said. 'I was a prisoner in Toulon for nineteen years. Here is my yellow card, see? People everywhere\footnote{\textbf{everywhere}: adv. in or to every place 到处；各处} shut their doors in my face – but not you. Why not?'
+
+\switchcolumn
+
+那个男人有些惊讶地看着主教。“我叫冉阿让。”他说，“我在土伦监狱坐了十九年牢。
+这是我的黄卡，看见没？不管我走到哪儿，他们都把我拒之门外，你却没这么做。为什
+么呢？”
+
+\switchcolumn*
+
+'Because, my friend, in the eyes of God you are my brother,' said the
+bishop, smiling. 'So, come in, and sit by our fire.' The bishop turned to
+his sister. 'Now, sister, our friend Jean Valjean needs a good dinner. Bring
+out the silver\footnote{\textbf{silver}: n. a valuable shiny, light grey
+  metal 银} dinner plates. It's a special\footnote{\textbf{special}: adj. not ordinary or usual 特殊的} night tonight.'
+
+\switchcolumn
+
+“因为，我的朋友，在上帝的眼里，您就是我的兄弟。”主教微笑着说道，“所以，进
+来吧，坐在炉火旁边。”主教转头对他的妹妹说：“你瞧，妹妹，我们的朋友冉阿让需
+要好好地吃一顿晚餐。把银餐盘拿出来吧。这是个特别的夜晚。”
+
+\switchcolumn*
+
+  'Not the silver plates!' whispered the bishop's sister. Her eyes went quickly to Jean Valjean, then back to the bishop's face.
+
+\switchcolumn
+
+  “别拿银餐盘！”主教的妹妹低声说道。她瞟了眼冉阿让，又转过头看着主教。
+
+\switchcolumn*
+
+  'Yes, the silver plates,' said the bishop. 'And the silver candlesticks too. The church has these beautiful things, but they are for our visitors. And our visitor tonight must have only the best.'
+
+  \switchcolumn
+  “就拿银餐盘。”主教说道，“再把银烛台也拿出来。教会拥有这些漂亮的东西，但它们是为我们的客人准备的。我们今晚就要拿最好的来招待客人。”
+
+\switchcolumn*
+
+  And so Jean Valjean sat down with the bishop and his sister and ate from silver plates. He ate hungrily – it was his first good meal for weeks.
+
+  'You're a good man,' he said to the bishop. 'Perhaps the only good man in France.'
+
+  \switchcolumn
+  于是，冉阿让与主教和主教的妹妹一起坐到了餐桌旁，用银餐盘吃晚餐。他吃得狼吞虎咽——这是他几个星期以来吃到的第一顿像样的饭。
+
+  “你是一个好人。”他对主教说，“可能是法国唯一的好人。”
+
+\switchcolumn*
+
+  But Valjean could not take his eyes away from the silver plates. After the meal, the bishop's sister put the silver plates away\footnote{\textbf{put away}: to put something in the place where it is usually kept 收起，放好}, and Valjean's eyes watched. He saw the place, and he remembered it.
+
+
+  \switchcolumn
+  但冉阿让无法把目光从银餐盘上移开。吃过饭之后，主教的妹妹把银餐盘收了起来，冉阿让全都看在眼里。他看见了收餐盘的地方，并记住了位置。
+
+\switchcolumn*
+
+In the night, in his warm bed in the bishop's house, he thought about the
+plates. They were big, heavy – so much silver in them! 'I can sell those
+plates,' he thought. 'For just one of them, I can eat well for months!'
+
+\switchcolumn
+
+  晚上，躺在主教家暖和的床铺上时，他一直想着那些餐盘。它们又大又沉——肯定用了很多白银！“我可以把那些盘子卖了。”他心想，“只要卖一个，就足够我几个月好吃好喝了！”
+
+\switchcolumn*
+
+  Nineteen years in prison is a long time, and nineteen hard years change a man.
+
+\switchcolumn
+
+  狱中的十九年是很长一段时间，十九年的苦难会改变一个人。
+
+  \switchcolumn*
+
+  \subsection{}
+
+  By morning Valjean was a long way from the bishop's house. But how do you carry big silver plates? How do you hide them? People in Digne began to whisper...
+
+  \switchcolumn
+
+  \subsection*{}
+  到了早上，冉阿让已经离开主教家很远了。但是，怎么才能带着硕大的银餐盘上路呢？怎么才能把它们藏起来呢？迪涅镇的居民开始窃窃私语……
+
+
+  \switchcolumn*
+
+  'Did you see him? That big man, carrying six silver plates? Where did he get them from, eh?'
+
+  'Those plates came from the church. A man like that doesn't have silver plates!'
+
+  'No! And he carries a yellow card, did you see? So he was a prisoner once.
+  He's a thief --- he stole\footnote{\textbf{stole}:steal的过去式，to take
+    something that belongs to others 偷盗} those plates!'
+
+\switchcolumn
+
+  “你看见他了吗？那个背着六个银餐盘的大块头男人？他是从什么地方弄来那些餐盘的呢？”
+
+  “那些餐盘是教会的。他那种人根本就不会有银餐盘！”
+
+  “不是吧！他身上有张黄卡，你看见没？这么说他从前坐过牢。他是个贼——他偷了那些餐盘！”
+
+  \switchcolumn*
+
+  The police heard the whispers. They went after\footnote{\textbf{go after}: to follow or chase someone or something 追赶} Jean Valjean, found him, and took him back to the bishop's house in the afternoon. But there, they had a surprise\footnote{\textbf{surprise}: n. an unexpected or unusual event 意想不到的事}.
+
+  \switchcolumn
+  警察听到了这些小声的议论。他们去追捕冉阿让，并抓到了他，下午的时候，警察把他带回了主教家。不过，到了那里，发生了一件令他们意想不到的事情。
+
+  \switchcolumn*
+
+  'My dear friend!' the bishop said to Jean Valjean. 'I'm so pleased to see you. You forgot the candlesticks! I gave you the silver plates and the candlesticks, you remember? but you forgot to take the candlesticks when you left.'
+
+  \switchcolumn
+  “我亲爱的朋友！”主教对冉阿让说，“见到您真是太高兴了。您忘了拿那些烛台！我把银餐盘和烛台都送给您了，您记得吗？可您走的时候忘记带走烛台了。”
+
+  \switchcolumn*
+
+  'But this man is a thief!' said one of the policemen.
+
+  'No, no, of course not,' said the bishop, smiling. 'I gave the silver to Monsieur Valjean.'
+
+  'You mean he can go? He is free?' said the policeman.
+
+  'Of course,' the bishop said.
+
+  \switchcolumn
+
+  “这个人可是个贼啊！”一个警察说道。
+
+  “不，不，当然不是。”主教微笑着说道，“银器是我送给冉阿让先生的。”
+
+  “您的意思是他可以走了？他自由了？”警察说道。
+
+  “当然。”主教说。
+
+  \switchcolumn*
+
+  All this time Jean Valjean stared at the bishop, and said not one word. The policemen went away\footnote{\textbf{go away}: to leave a place or person 离去}, and the Bishop of Digne went into his house and came out again with the two silver candlesticks. They were tall and heavy and beautiful. The bishop put the candlesticks into Jean Valjean's hands.
+
+  \switchcolumn
+  整个过程中，冉阿让一直盯着主教，一言不发。警察走了以后，迪涅主教走进屋里，又拿着那两个银烛台走了出来。它们又高又沉，非常漂亮。主教把烛台交到了冉阿让的手里。
+
+  \switchcolumn*
+
+  'Jean Valjean, my brother,' he said. 'You must leave your bad life behind you. This is God's silver, and I am giving it to you. With it, you can begin a new, good life. I am buying your soul\footnote{\textbf{soul}: n. the part of a person that contains their character, thoughts, and feelings 灵魂} for God.'
+
+  \switchcolumn
+  “冉阿让，我的弟兄，”他说，“您一定要把行恶的生活抛在身后。这是上帝的银器，现在我把它送给您。有了它，您可以开始诚实的新生活。我是在为上帝买您的灵魂。”
+
+  \switchcolumn*
+
+  \subsection{}
+
+  Jean Valjean left the town of Digne, with his silver plates and his silver candlesticks. Suddenly, he was a rich man, but he did not understand why.
+
+  \switchcolumn
+
+  \subsection*{}
+
+  冉阿让带着他的银餐盘和银烛台离开了迪涅镇。突然之间，他变成了一个富人，却不
+  知道为什么会这样。
+
+  \switchcolumn*
+
+  'What's happening to me?' he thought. 'Everything is changing. How can I hate people when this bishop is so good to me? What shall I do? How shall I live?'
+
+  \switchcolumn
+  “我这是怎么了？”他心想，“一切都变了。主教对我这么好，我怎么还能去恨别人呢？我应该做些什么？我应该怎样生活呢？”
+
+  \switchcolumn*
+
+  Prisoner Valjean did not understand anything. He sat down by the road, with his head in his hands, and cried. He cried for the first time in nineteen years.
+
+  \switchcolumn
+
+  囚犯冉阿让什么都想不明白。他坐在路边，双手抱着头哭了起来。他十九年来第一次哭了起来。
+
+  \switchcolumn*
+
+  How long did he sit there, crying? What did he do next, and where did he go? Nobody knows, but when the sun came up on a new day, he was a changed man.
+
+  \switchcolumn
+
+  他坐在那里哭了多长时间？他接下来做了什么，去了哪里？没有人知道，但是新的一天太阳升起的时候，他成了一个改过自新的人。
+
+
+
+\end{paracol}
+
+\clearpage
+\begin{paracol}{2}
+
+  \section{Fantine}
+
+  \subsection{FOREWORD}
+
+  Now we meet Fantine. She is young and beautiful, and in love with a man in Paris. But she has no family, and no money. For Fantine, this is the love of her life; for the man in Paris, it is just a summer of love.
+
+  \switchcolumn
+
+  \section*{芳汀}
+
+  \subsection*{引言}
+
+
+现在让我们来说说芳汀。她年轻漂亮，在巴黎爱上了一个男人。但是她没有家人，也没有钱。对芳汀来说，这是她一生挚爱；对那个巴黎男人来说，这只是一段夏日恋曲。
+
+\switchcolumn*
+
+Men are not kind to women. They have their fun, and then they walk away. The man in Paris goes home to his rich family, and leaves poor Fantine with a child, a little girl called Cosette. Fantine must find work, but how?
+
+\switchcolumn
+
+男人总是狠心地对待女人。他们玩乐够了，就甩手走了。那个巴黎男人回到了他富有的家庭，留下可怜的芳汀一个人带着个孩子，一个叫珂赛特的小女孩。芳汀必须找到工作，可怎么找呢？
+
+\switchcolumn*
+
+Fantine has a child but no husband, and a woman without a husband is nothing. Worse than nothing. People are not kind to a woman with a child but no husband. They turn their faces away, they close their doors, they say, 'There's no work here for a woman like you.'
+
+\switchcolumn
+
+芳汀有个孩子，却没有丈夫，而没有丈夫的女人什么都不是——比什么都不是还糟。对带着孩子却没有丈夫的女人，人们向来不肯发发善心。他们扭过脸去，关上家门，说：“这里没有工作给像你这样的女人。”
+
+\switchcolumn*
+
+Fantine loves her daughter dearly, but what can she do? So, in 1818, in a
+village near Paris, she leaves her little daughter with Monsieur and Madame
+Thénardier. They ask for\footnote{\textbf{ask for}: to make a request for something 要；要求} seven francs\footnote{\textbf{franc}:
+  \doulos{fræŋk}, n. the former standard unit of money in France 法郎（法国
+  的原货币单位）} a month. Fantine pays the money, holds her daughter in her
+arms for the last time, and leaves. She takes the road for her home town of
+Montreuil, and tears\footnote{\textbf{tear}: n. water that comes from your eyes when you cry 眼泪} are running down her face. There is misery in her
+heart. Poor Fantine. Poor Cosette.
+
+\switchcolumn
+
+芳汀非常疼爱自己的女儿，可是她能做什么呢？于是，1818年，在巴黎附近的一个小村子里，她把年幼的女儿交给了德纳第夫妇照顾。他们要芳汀一个月付七法郎。芳汀给了钱，最后一次把女儿抱在怀里，然后离开了。她踏上回家乡蒙特勒伊的路，眼泪顺着面颊流了下来。她满心痛苦。可怜的芳汀，可怜的珂赛特。
+
+\switchcolumn*
+
+In Montreuil Fantine finds work in a factory. This is the factory of
+Monsieur Madeleine, an important\footnote{\textbf{important}: adj. having a
+  big effect or influence 重要的；有名望的} man in the town, and very rich.
+Everybody likes him, because he is a good man. He is kind to his workers, he
+helps people, and his factory gives many jobs to the
+townspeople\footnote{\textbf{townspeople}: n. (pl.) all the people who live
+  in a particular town 镇民}.
+
+\switchcolumn
+
+芳汀在蒙特勒伊的一家工厂找到了工作。这是马德兰先生开的工厂。他是镇上的大人物，非常有钱。所有人都喜欢他，因为他是一个好人。他善待厂里的工人，扶危济困，他的工厂还为镇民提供了许多工作机会。
+
+\switchcolumn*
+
+But who is he, this Monsieur Madeleine? Where did he come from? He arrived in Montreuil at the end of 1815, but nobody knows his family, or anything about him.
+
+\switchcolumn
+
+但是，这个马德兰先生到底是谁呢？他打哪儿来？他是1815年的年底来到蒙特勒伊的，可没有人知道他的家庭情况，或是任何关于他的事。
+
+
+
+\switchcolumn*
+
+Fantine sent money every month to the Thénardiers. They were not good people, and they used the money for their own daughters. Poor little Cosette was a hungry, dirty, unloved child. She worked all day – she cleaned the house, she carried water, she washed the clothes. But Fantine knew nothing of this, and she worked long hours to make money for Cosette.
+
+\switchcolumn
+
+芳汀每个月都给德纳第夫妇寄钱。他们不是好人，把钱都花在了自己的女儿身上。可怜的小珂赛特又饿又脏，没人疼爱。她从早到晚地干活儿——打扫屋子，提水，洗衣。可芳汀对此一无所知，她每天起早贪黑地工作，只为了赚钱给珂赛特。
+
+\switchcolumn*
+
+The next year the Thénardiers asked for twelve francs a month; the year after that, they wanted fifteen francs.
+
+\switchcolumn
+
+到了第二年，德纳第夫妇每个月索要十二法郎；又过了一年，他们张口要十五法郎。
+
+\switchcolumn*
+
+Then Fantine lost her job at the factory, because the women did not like her.
+
+
+'She has a child, in a village somewhere near Paris.'
+
+
+'Yes, and where's her husband? She doesn't have one!'
+
+
+'We don't want that kind of woman here. She must go.'
+
+
+\switchcolumn
+
+后来芳汀丢掉了工厂里的工作，因为女工们都不喜欢她。
+
+
+“她有个孩子，养在巴黎附近的一个村子。”
+
+
+“是呀。她的丈夫在哪里？她没有丈夫！”
+
+
+“我们这里不要这样的女人。她必须走人。”
+
+\switchcolumn*
+
+Fantine found work making shirts. It was hard work for little money. She was
+often ill, with a small dry cough\footnote{\textbf{cough}: \doulos{kɒf}, n.
+  the action of sending air out of the throat with a sudden loud noise 咳嗽}.
+
+\switchcolumn
+
+芳汀找了份缝制衬衫的工作。这份工作非常辛苦，收入却少得可怜。她常常生病，还伴有轻微的干咳。
+
+\switchcolumn*
+
+The Thénardiers wrote again: 'Your daughter needs a warm dress for winter. Send ten francs at once.'
+
+\switchcolumn
+
+德纳第夫妇又写信来了：“你的女儿需要一件暖和的衣裙过冬。马上寄十法郎来。”
+
+\switchcolumn*
+
+Fantine did not have ten francs. She thought long and hard, and went to the
+barber\footnote{\textbf{barber}: \doulos{ˈbɑːbə(r)} n. a man whose job is
+  to cut men's hair 男理发师} in the town. She took off her hat, and her
+golden hair fell down her back.
+
+\switchcolumn
+
+芳汀没有十法郎。她苦恼了很久，最后上了镇上的理发店。她摘下帽子，满头的金发垂落下来。
+
+\switchcolumn*
+
+'That's beautiful hair,' said the barber.
+
+
+'What can you give me for it?'
+
+
+'Ten francs.'
+
+
+'Then cut it off.'
+
+
+She sent the money to the Thénardiers. 'My daughter's not cold now,' she thought. 'she's wearing my hair.'
+
+\switchcolumn
+
+“这头发真漂亮。”理发师说。
+
+
+“卖给你的话能给我多少钱？”
+
+
+“十法郎。”
+
+
+“那就把它剪了吧。”
+
+
+她把钱寄给了德纳第夫妇。“我的女儿现在不会挨冻了。”她心想，“她穿着我用头发换来的衣服。”
+
+\switchcolumn*
+
+Soon another letter came from the Thénardiers: 'Send one hundred francs, or Cosette must leave our house.'
+
+\switchcolumn
+
+没过多久，德纳第夫妇又写来一封信：“寄一百法郎来，不然珂赛特就别想住在我们家了。”
+
+\switchcolumn*
+
+A hundred francs! How can a poor woman get that kind of money? There was only one way.
+
+\switchcolumn
+
+一百法郎！一个穷困的女人怎么才能弄到这么一笔钱呢？只有一个办法了。
+
+\switchcolumn*
+
+One cold winter evening, outside a restaurant in the centre of Montreuil, a
+woman walked up and down. There was snow on the ground, but the woman wore
+an evening dress, with flowers in her hair. Some young men came out of the
+restaurant, saw her, and began to call her bad names\footnote{\textbf{call
+    sb. bad names}: to use unpleasant words to describe someone in order to
+  insult or upset them 谩骂某人}. They laughed and shouted, but the woman
+did not look at them. Then, one young man took some snow and put it down the
+back of the woman's dress.
+
+\switchcolumn
+
+一个寒冷的冬夜，有个女人在蒙特勒伊镇中心的一家餐馆外面走来走去。地上还有积雪，可那个女人却只穿了一件晚礼服，发间插着花。几名年轻男子从餐馆里走了出来，他们看见了她，开始对她骂骂咧咧。他们又是笑又是嚷，可女人并没有朝他们看。这时，一个年轻男子抓了一把雪，塞进了女人后背的衣服里。
+
+\switchcolumn*
+
+The woman was Fantine. She gave a cry, turned, and
+hit\footnote{\textbf{hit}: v. to touch someone quickly and hard with your
+  hand, a stick etc 打} the young man's face with her hands. People came to
+watch, laughing.
+
+\switchcolumn
+
+这个女人正是芳汀。她“啊”的一声叫了出来，转过身子，挥手打了那个年轻男子的脸。人们上前围观，哄笑声一片。
+
+\switchcolumn*
+
+A tall policeman arrived, took the woman by the arm, and pulled her away. 'Come with me,' he said.
+
+
+This policeman was inspector Javert. He was new to Montreuil, and he was a hard man. To him, the law was the only important thing in life, and he hated criminals\footnote{\textbf{criminal}: n. someone who is involved in illegal activities 罪犯}.
+
+\switchcolumn
+
+一个高个子警察赶了过来，抓住女人的胳膊，把她拉开了。“跟我走。”他说道。
+
+
+这个警察是沙威督察。他是个冷酷无情的人，刚刚才调到蒙特勒伊。对他来说，法律是生活中唯一重要的事情，他痛恨罪犯。
+
+\switchcolumn*
+
+The law in France at that time was not kind to women like Fantine. Javert took Fantine to the office of police.
+
+\switchcolumn
+
+在那个时代，法国的法律对芳汀这样的女人是毫不容情的。沙威把芳汀带到了警局。
+
+\switchcolumn*
+
+'You hit a man in the street, and that's a crime\footnote{\textbf{crime}: n. an illegal action 罪行},' he told her. 'You're getting six months.'
+
+
+'Six months in prison?' Fantine cried. 'No! I'm not a bad woman, Monsieur, please! I must work, I need the money for my little daughter. Please, please don't send me to prison!' She fell to the floor, crying.
+
+'Take her away,' Javert said to a policeman.
+
+\switchcolumn
+
+“你在大街上打了一个男人，这是犯罪行为。”他对她说，“你要坐六个月的牢。”
+
+“坐六个月牢？”芳汀哭喊道，“不行啊！我不是个坏女人，先生，求求您！我必须工作，我需要赚钱来养活我的小女儿。求求您，求求您不要送我进监狱！”她瘫倒在地上哭了起来。
+
+
+“把她带走。”沙威对一名警察说。
+
+\switchcolumn*
+
+'One moment, please,' said a new voice\footnote{\textbf{voice}: n. the sounds that you make when you speak 说话声，嗓音}
+.
+
+Everybody turned to look at the door, and there stood the good, the great Monsieur Madeleine. He was an important man in Montreuil.
+
+\switchcolumn
+
+“请等一下。”这时响起了另一个声音。
+
+大家都转过头去看着门口，门口站着的是善良、威严的马德兰先生。他是蒙特勒伊镇上的大人物。
+
+\switchcolumn*
+
+'Inspector,' he said. 'I was outside the restaurant too, and I can tell you
+the true story. The young man began the fight, and this poor woman' --- he
+looked at Fantine on the floor --- 'must go free. She did nothing wrong.'
+
+\switchcolumn
+
+“督察，”他说道，“我当时也在餐馆外面，可以告诉您事情的真实情况。是那个年轻人先挑事儿的，而这个可怜的女人”——他看着地上的芳汀——“您必须放了她。她没有做错任何事。”
+
+\switchcolumn*
+
+'The woman is a criminal,' said Javert angrily. 'She ---'
+
+
+'She must go free,' said Monsieur Madeleine. 'Ask the other people at the restaurant. We all saw the same thing.'
+
+
+\switchcolumn
+
+“这女人是个罪犯。”沙威愤怒地说道，“她——”
+
+“您必须放了她。”马德兰先生说，“问问餐馆的其他人。我们都看到了那一幕。”
+
+\switchcolumn*
+
+Fantine stood up slowly. She began to cough\footnote{\textbf{cough}: v. to
+  send air out of the throat with a sudden loud noise 咳嗽} , a hard dry
+noise\footnote{\textbf{noise}: n. a loud, unpleasant sound 响声；噪音}
+. Monsieur Madeleine took her arm gently\footnote{\textbf{gently}: adv. not in a strong or violent way 轻柔地，温柔地}
+.
+
+\switchcolumn
+
+芳汀慢慢站了起来。她开始咳嗽，是很厉害的干咳。马德兰先生轻轻扶住了她的胳膊。
+
+
+\switchcolumn*
+
+'My dear child, you are not well,' he said.
+
+\switchcolumn
+
+“我亲爱的孩子，你生病了。”他说。
+
+\switchcolumn*
+
+Javert's cold eyes stared at Monsieur Madeleine.
+
+
+'Do I know you from somewhere?' he said. 'Were you ever at Toulon?'
+
+
+Monsieur Madeleine looked at him. His face did not change, but his eyes were Suddenly very watchful\footnote{\textbf{watchful}: adj. very careful to notice what is happening 警惕的}
+. 'No, I don't know Toulon,' he said.
+
+\switchcolumn
+
+沙威一双冷酷的眼睛紧盯着马德兰先生。
+
+
+“我以前在哪儿见过您吗？”他说，“您到过土伦吗？”
+
+
+马德兰先生看着他。他脸上的神情没有任何变化，眼神却突然变得警惕起来。“不，我不知道土伦这个地方。”他说。
+
+
+\switchcolumn*
+
+Monsieur Madeleine took Fantine to the little hospital in Montreuil. She
+lay\footnote{\textbf{lie}: 过去式为lay, v. to be in a position in which your body is flat on a bed etc 躺}
+ in bed, and coughed and coughed. Monsieur Madeleine listened to her sad story, and the next day he sent money to the Thénardiers.
+
+\switchcolumn
+
+马德兰先生把芳汀带到了蒙特勒伊的小医院。她躺在床上，咳个不停。马德兰先生听她讲了自己辛酸的故事，第二天，他就给德纳第夫妇寄去了钱。
+
+\switchcolumn*
+
+'Now, you must get better,' he told Fantine. 'Cosette needs you.'
+
+
+But Fantine did not get better. She was now very ill, and five days later the doctor spoke to Monsieur Madeleine.
+
+\switchcolumn
+
+“好了，你一定要好起来。”他对芳汀说，“珂赛特需要你。”
+
+
+可是芳汀没能好起来。她这时已病得很重。五天之后，大夫找了马德兰先生谈话。
+
+\switchcolumn*
+
+'Does she have a child, this poor woman?' he said.
+
+
+'Yes, a small daughter.'
+
+
+'You must bring the child here –- soon.'
+
+\switchcolumn
+
+“这个可怜的女人是不是有个孩子？”他问道。
+
+
+“是的，有一个年幼的女儿。”
+
+
+“您必须把这个孩子带到这儿来——要快。”
+
+\switchcolumn*
+
+Monsieur Madeleine went to sit by Fantine's bed.
+
+'Monsieur Madeleine' –- cough, cough –- 'you are so' –- cough, cough –- 'kind to me. I want to see my daughter, one last time. Please can you' –- cough, cough, cough -– 'bring Cosette to me? Please, Monsieur!'
+
+\switchcolumn
+
+马德兰先生走到芳汀的病床边坐了下来。
+
+
+“马德兰先生”——咳，咳——“您真是”——咳，咳——“对我太好了。我想见见我的女儿，最后一面。求求您，您能”——咳，咳，咳——“把珂赛特带来见我吗？求求您了，先生！”
+
+\switchcolumn*
+
+Monsieur Madeleine took her hand. 'Of course I can,' he said gently, 'and
+then ---'
+
+\switchcolumn
+
+马德兰先生握住她的手。“我当然会把她带来，”他温和地说，“到那时候——”
+
+\switchcolumn*
+
+The door of the room Suddenly opened behind him, and Fantine cried out\footnote{\textbf{cry out}: to make a loud sound of fear, pain etc （因害怕、疼痛等）叫喊}
+, 'No! No!'
+
+\switchcolumn
+
+房间的门在他身后猛地打开了，芳汀喊道：“不！不！”
+
+\switchcolumn*
+
+Monsieur Madeleine looked round quickly. Inspector Javert came into the room, with four policemen.
+
+
+'Jean Valjean, prisoner at Toulon, I am arresting\footnote{\textbf{arrest}:  v. to take a person to a police station because the police think they have done something illegal 逮捕}
+ you,' Javert said. 'After you left the prison, you stole money from a child in Toulon. You are still a thief, and now you must go to prison for life\footnote{\textbf{for life}: for the rest of one's lifetime 终生}
+.'
+
+\switchcolumn
+
+马德兰先生迅速转身看去。沙威督察带着四个警察走进了房间。
+
+
+“冉阿让，土伦的囚犯，我来逮捕你。”沙威说，“离开监狱之后，你在土伦偷了一个孩子的钱。你仍然是一个贼，现在你要坐上一辈子的牢。”
+
+\switchcolumn*
+
+Fantine sat up in bed. 'No!' she cried. 'Cosette...!'
+
+\switchcolumn
+
+芳汀从床上坐了起来。“不！”她喊道，“珂赛特……！”
+
+\switchcolumn*
+
+Monsieur Madeleine stood up slowly. 'Inspector, give me three days,' he said. He was a big man, much bigger than Javert. 'Three days, to bring this poor woman's child to her before she dies. Then you can take me.'
+
+\switchcolumn
+
+马德兰先生慢慢站起了身。“督察，给我三天时间。”他说。他身材高大，比沙威要高大许多。“就三天，我要在这个可怜的女人死前，带她的孩子来见她。之后您可以把我抓走。”
+
+\switchcolumn*
+
+Javert laughed loudly. 'Three days! You're going to run away!'
+
+Behind the two men, Fantine cried out, 'Monsieur Madeleine, please take care of\footnote{\textbf{take care of}:  to look after someone or something 照顾；照管}
+ Cosette, oh please...'
+
+Javert turned to her. 'Be quiet, woman! There's no Monsieur Madeleine here. This man is a criminal, called Jean Valjean, and he's going to prison!'
+
+Fantine stared at Javert, and tried to speak, but she could not. She fell back in the bed, and lay still.
+
+She was dead.
+
+
+\switchcolumn
+
+沙威大声笑了起来：“三天！你是想要逃跑！”
+
+在这两个男人身后，芳汀哭着说：“马德兰先生，求您照顾珂赛特，哦，求求您……”
+
+
+沙威把脸转向她：“闭嘴，女人！这里没有什么马德兰先生。这个男人是个罪犯，他叫冉阿让，他就要进监狱了！”
+
+
+芳汀看着沙威，她想要开口，却说不出话来。她倒在床上，一动也不动。
+
+
+她死了。
+
+\switchcolumn*
+
+The people of Montreuil talked about that day for a long time – the death of the woman Fantine, the arrest of Monsieur Madeleine. Javert put Monsieur Madeleine in a locked room in the police office, but in the night he broke down\footnote{\textbf{break down}: to hit a door so hard that it breaks and falls to the ground 砸破（门）}
+ the door and escaped. Where did he go? Did he go to his house in the town? His old servant\footnote{\textbf{servant}: n. a person who works in another person's house 仆人}
+ said no. She saw nobody, and heard nothing, she said. (She loved Monsieur Madeleine very much.)
+
+\switchcolumn
+
+很长一段时间里，蒙特勒伊的人们都在谈论那天发生的事——那个名叫芳汀的女人的死和马德兰先生的被捕。沙威把马德兰先生锁在警局的一个房间里，可是那天夜里，马德兰先生撞开了门，逃跑了。他去哪儿了呢？他是不是跑回了镇上自己的家里？他的老仆人说没见到他。她说，她谁都没看见，什么都没听见。（她非常敬爱马德兰先生。）
+
+\switchcolumn*
+
+So where did Monsieur Madeleine go? Nobody in Montreuil saw him again. One thing was certain\footnote{\textbf{certain}: adj. without any doubt 肯定的}
+. In Monsieur Madeleine's house there were two beautiful old silver candlesticks. The next day, they were gone\footnote{\textbf{gone}:  adj. no longer there 不复存在的}
+.
+
+\switchcolumn
+
+那么，马德兰先生去了哪里呢？蒙特勒伊的居民再也没有见过他。有一件事是清楚无疑的。在马德兰先生的家里有两个漂亮的旧银烛台。第二天，它们不见了。
+
+\end{paracol}
+
+
+
+
+% \printunsrtglossary[style={mcolindexgroup},title={Glossary 词汇表}] %
+% \printunsrtglossary[style={indexgroup}]
+% \printunsrtglossary
+
+\end{document}
+
+%%% Local Variables:
+%%% mode: LaTeX
+%%% TeX-master: t
+%%% End:
