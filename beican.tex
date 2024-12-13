@@ -20,7 +20,7 @@
 
 \newcommand\doulos[1]{{\fontspec{Doulos SIL} /#1/}}
 
-% \usepackage{microtype} % 改善单词、字母间距
+\usepackage{microtype} % 改善单词、字母间距
 \usepackage{verse}
 \usepackage[asterism, skip=5pt]{sectionbreak}
 
@@ -76,18 +76,6 @@
 \footnotelayout{p}
 
 
-\usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
-% 重新定义 \seename
-\renewcommand*{\seename}{见}
-
-\GlsXtrLoadResources[
-src={beican},
-selection=all,
-sort={en-GB},
-sort-field={name}
-]
-\renewcommand{\glossarypreamble}{\footnotesize}
-
 % 自定义图片环境，包含纵向两个图片。注意这一自定义命令限制较多，需调整参数，
 % 防止溢出。使用方法为
 % \dingphotoh{photo1name}{photo1cap}{photo1description}{photo2name}{photo2cap}{photo2description}
@@ -119,6 +107,9 @@ sort-field={name}
 % \def\authorurl#1{\gdef\@authorurl{\url{#1}}}
 % \def\@authorurl{\@latex@warning{No \noexpand\authorurl given}}
 
+\setcolumnwidth{0.54\textwidth,0.44\textwidth}
+% \setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{2em}
 
 \def\maketitle{%
   \thispagestyle{empty}
@@ -172,9 +163,6 @@ sort-field={name}
 %% 目录
 \tableofcontents
 
-\setcolumnwidth{0.54\textwidth,0.44\textwidth}
-\setlength{\columnseprule}{0.4pt}
-\setlength{\columnsep}{2em}
 
 \begin{paracol}{2}
 
@@ -196,7 +184,13 @@ sort-field={name}
 
   \switchcolumn
 
-  这是冉阿让的故事。他坐了19年的牢，终于恢复了自由身。可是，他怎么生活，到哪里去找工作呢？像他这样一个人，还有什么希望呢？这也是沙威的故事，他是一个督察，一个残忍的人，一个冷酷的人。他的人生只有一个目标——把冉阿让再次送进大牢。这还是芳汀的故事，芳汀和她的女儿珂赛特。她们的故事是怎样改变了冉阿让的一生？这也是马吕斯的故事。他是巴黎的一名学生，做好了为起义而牺牲的准备——或是为爱情而死。最后，还有伽弗洛什——一个在巴黎街头流浪的孩子，他没有家，没有亲人，没有鞋穿……可他的脸上总是挂着笑容，心中总是有歌儿在欢唱。
+  这是冉阿让的故事。他坐了19年的牢，终于恢复了自由身。可是，他怎么生活，到哪
+  里去找工作呢？像他这样一个人，还有什么希望呢？这也是沙威的故事，他是一个督
+  察，一个残忍的人，一个冷酷的人。他的人生只有一个目标——把冉阿让再次送进大
+  牢。这还是芳汀的故事，芳汀和她的女儿珂赛特。她们的故事是怎样改变了冉阿让的
+  一生？这也是马吕斯的故事。他是巴黎的一名学生，做好了为起义而牺牲的准
+  备——或是为爱情而死。最后，还有伽弗洛什——一个在巴黎街头流浪的孩子，他没
+  有家，没有亲人，没有鞋穿……可他的脸上总是挂着笑容，心中总是有歌儿在欢唱。
 
   \switchcolumn*
 
@@ -281,7 +275,7 @@ sort-field={name}
   One evening in October, in the year 1815, there was a knock on the door of
   the bishop\footnote{\textbf{bishop}: n. a priest with a high rank in some Christian churches 主教} of Digne's house.
 
-  'Come in,' said the bishop. The bishop was a kind man; everyone in the town of Digne knew that. Poor people, hungry people, miserable\footnote{\textbf{miserable}: adj. extremely unhappy 悲惨的；痛苦的} people – they all came to the door of the bishop's house.
+  ``Come in,'' said the bishop. The bishop was a kind man; everyone in the town of Digne knew that. Poor people, hungry people, miserable\footnote{\textbf{miserable}: adj. extremely unhappy 悲惨的；痛苦的} people – they all came to the door of the bishop's house.
 
   \switchcolumn
 
@@ -296,9 +290,9 @@ sort-field={name}
 
   The bishop's sister looked at the man at the door that night, and she was afraid.
 
-  'Look at him!' she whispered\footnote{\textbf{whisper}: v. to say something very quietly 低语，耳语} to the bishop. 'He is a big man, and a dangerous one. He carries a yellow card, so he was once a prisoner – a bad man.'
+  ``Look at him!'' she whispered\footnote{\textbf{whisper}: v. to say something very quietly 低语，耳语} to the bishop. ``He is a big man, and a dangerous one. He carries a yellow card, so he was once a prisoner – a bad man.''
 
-  But the bishop did not listen. 'Come in, my friend,' he said to the man at the door. 'Come in. You must eat dinner with us, and sleep in a warm bed tonight.'
+  But the bishop did not listen. ``Come in, my friend,'' he said to the man at the door. ``Come in. You must eat dinner with us, and sleep in a warm bed tonight.''
 
   \switchcolumn
 
@@ -310,7 +304,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  The man stared\footnote{\textbf{stare}: v. to look for a long time without moving your eyes 注视，盯着看} at the bishop. 'My name is Jean Valjean,' he said. 'I was a prisoner in Toulon for nineteen years. Here is my yellow card, see? People everywhere\footnote{\textbf{everywhere}: adv. in or to every place 到处；各处} shut their doors in my face – but not you. Why not?'
+  The man stared\footnote{\textbf{stare}: v. to look for a long time without moving your eyes 注视，盯着看} at the bishop. ``My name is Jean Valjean,'' he said. ``I was a prisoner in Toulon for nineteen years. Here is my yellow card, see? People everywhere\footnote{\textbf{everywhere}: adv. in or to every place 到处；各处} shut their doors in my face – but not you. Why not?''
 
   \switchcolumn
 
@@ -320,11 +314,11 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Because, my friend, in the eyes of God you are my brother,' said the
-  bishop, smiling. 'So, come in, and sit by our fire.' The bishop turned to
-  his sister. 'Now, sister, our friend Jean Valjean needs a good dinner. Bring
+  ``Because, my friend, in the eyes of God you are my brother,'' said the
+  bishop, smiling. ``So, come in, and sit by our fire.'' The bishop turned to
+  his sister. ``Now, sister, our friend Jean Valjean needs a good dinner. Bring
   out the silver\footnote{\textbf{silver}: n. a valuable shiny, light grey
-    metal 银} dinner plates. It's a special\footnote{\textbf{special}: adj. not ordinary or usual 特殊的} night tonight.'
+    metal 银} dinner plates. It's a special\footnote{\textbf{special}: adj. not ordinary or usual 特殊的} night tonight.''
 
   \switchcolumn
 
@@ -334,7 +328,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Not the silver plates!' whispered the bishop's sister. Her eyes went quickly to Jean Valjean, then back to the bishop's face.
+  ``Not the silver plates!'' whispered the bishop's sister. Her eyes went quickly to Jean Valjean, then back to the bishop's face.
 
   \switchcolumn
 
@@ -342,7 +336,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Yes, the silver plates,' said the bishop. 'And the silver candlesticks too. The church has these beautiful things, but they are for our visitors. And our visitor tonight must have only the best.'
+  ``Yes, the silver plates,'' said the bishop. ``And the silver candlesticks too. The church has these beautiful things, but they are for our visitors. And our visitor tonight must have only the best.''
 
   \switchcolumn
   “就拿银餐盘。”主教说道，“再把银烛台也拿出来。教会拥有这些漂亮的东西，但它们是为我们的客人准备的。我们今晚就要拿最好的来招待客人。”
@@ -351,7 +345,7 @@ sort-field={name}
 
   And so Jean Valjean sat down with the bishop and his sister and ate from silver plates. He ate hungrily – it was his first good meal for weeks.
 
-  'You're a good man,' he said to the bishop. 'Perhaps the only good man in France.'
+  ``You're a good man,'' he said to the bishop. ``Perhaps the only good man in France.''
 
   \switchcolumn
   于是，冉阿让与主教和主教的妹妹一起坐到了餐桌旁，用银餐盘吃晚餐。他吃得狼吞虎咽——这是他几个星期以来吃到的第一顿像样的饭。
@@ -369,8 +363,8 @@ sort-field={name}
   \switchcolumn*
 
   In the night, in his warm bed in the bishop's house, he thought about the
-  plates. They were big, heavy – so much silver in them! 'I can sell those
-  plates,' he thought. 'For just one of them, I can eat well for months!'
+  plates. They were big, heavy – so much silver in them! ``I can sell those
+  plates,'' he thought. ``For just one of them, I can eat well for months!''
 
   \switchcolumn
 
@@ -398,13 +392,13 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Did you see him? That big man, carrying six silver plates? Where did he get them from, eh?'
+  ``Did you see him? That big man, carrying six silver plates? Where did he get them from, eh?''
 
-  'Those plates came from the church. A man like that doesn't have silver plates!'
+  ``Those plates came from the church. A man like that doesn't have silver plates!''
 
-  'No! And he carries a yellow card, did you see? So he was a prisoner once.
+  ``No! And he carries a yellow card, did you see? So he was a prisoner once.
   He's a thief --- he stole\footnote{\textbf{stole}:steal的过去式，to take
-    something that belongs to others 偷盗} those plates!'
+    something that belongs to others 偷盗} those plates!''
 
   \switchcolumn
 
@@ -423,20 +417,20 @@ sort-field={name}
 
   \switchcolumn*
 
-  'My dear friend!' the bishop said to Jean Valjean. 'I'm so pleased to see you. You forgot the candlesticks! I gave you the silver plates and the candlesticks, you remember? but you forgot to take the candlesticks when you left.'
+  ``My dear friend!'' the bishop said to Jean Valjean. ``I'm so pleased to see you. You forgot the candlesticks! I gave you the silver plates and the candlesticks, you remember? but you forgot to take the candlesticks when you left.''
 
   \switchcolumn
   “我亲爱的朋友！”主教对冉阿让说，“见到您真是太高兴了。您忘了拿那些烛台！我把银餐盘和烛台都送给您了，您记得吗？可您走的时候忘记带走烛台了。”
 
   \switchcolumn*
 
-  'But this man is a thief!' said one of the policemen.
+  ``But this man is a thief!'' said one of the policemen.
 
-  'No, no, of course not,' said the bishop, smiling. 'I gave the silver to Monsieur Valjean.'
+  ``No, no, of course not,'' said the bishop, smiling. ``I gave the silver to Monsieur Valjean.''
 
-  'You mean he can go? He is free?' said the policeman.
+  ``You mean he can go? He is free?'' said the policeman.
 
-  'Of course,' the bishop said.
+  ``Of course,'' the bishop said.
 
   \switchcolumn
 
@@ -457,7 +451,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Jean Valjean, my brother,' he said. 'You must leave your bad life behind you. This is God's silver, and I am giving it to you. With it, you can begin a new, good life. I am buying your soul\footnote{\textbf{soul}: n. the part of a person that contains their character, thoughts, and feelings 灵魂} for God.'
+  ``Jean Valjean, my brother,'' he said. ``You must leave your bad life behind you. This is God's silver, and I am giving it to you. With it, you can begin a new, good life. I am buying your soul\footnote{\textbf{soul}: n. the part of a person that contains their character, thoughts, and feelings 灵魂} for God.''
 
   \switchcolumn
   “冉阿让，我的弟兄，”他说，“您一定要把行恶的生活抛在身后。这是上帝的银器，现在我把它送给您。有了它，您可以开始诚实的新生活。我是在为上帝买您的灵魂。”
@@ -477,7 +471,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'What's happening to me?' he thought. 'Everything is changing. How can I hate people when this bishop is so good to me? What shall I do? How shall I live?'
+  ``What's happening to me?'' he thought. ``Everything is changing. How can I hate people when this bishop is so good to me? What shall I do? How shall I live?''
 
   \switchcolumn
   “我这是怎么了？”他心想，“一切都变了。主教对我这么好，我怎么还能去恨别人呢？我应该做些什么？我应该怎样生活呢？”
@@ -507,7 +501,7 @@ sort-field={name}
 
   \section{Fantine}
 
-  \subsection{FOREWORD}
+  \subsection*{FOREWORD}
 
   Now we meet Fantine. She is young and beautiful, and in love with a man in Paris. But she has no family, and no money. For Fantine, this is the love of her life; for the man in Paris, it is just a summer of love.
 
@@ -530,7 +524,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  Fantine has a child but no husband, and a woman without a husband is nothing. Worse than nothing. People are not kind to a woman with a child but no husband. They turn their faces away, they close their doors, they say, 'There's no work here for a woman like you.'
+  Fantine has a child but no husband, and a woman without a husband is nothing. Worse than nothing. People are not kind to a woman with a child but no husband. They turn their faces away, they close their doors, they say, ``There's no work here for a woman like you.''
 
   \switchcolumn
 
@@ -600,13 +594,13 @@ sort-field={name}
   Then Fantine lost her job at the factory, because the women did not like her.
 
 
-  'She has a child, in a village somewhere near Paris.'
+  ``She has a child, in a village somewhere near Paris.''
 
 
-  'Yes, and where's her husband? She doesn't have one!'
+  ``Yes, and where's her husband? She doesn't have one!''
 
 
-  'We don't want that kind of woman here. She must go.'
+  ``We don't want that kind of woman here. She must go.''
 
 
   \switchcolumn
@@ -634,7 +628,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  The Thénardiers wrote again: 'Your daughter needs a warm dress for winter. Send ten francs at once.'
+  The Thénardiers wrote again: ``Your daughter needs a warm dress for winter. Send ten francs at once.''
 
   \switchcolumn
 
@@ -653,19 +647,19 @@ sort-field={name}
 
   \switchcolumn*
 
-  'That's beautiful hair,' said the barber.
+  ``That's beautiful hair,'' said the barber.
 
 
-  'What can you give me for it?'
+  ``What can you give me for it?''
 
 
-  'Ten francs.'
+  ``Ten francs.''
 
 
-  'Then cut it off.'
+  ``Then cut it off.''
 
 
-  She sent the money to the Thénardiers. 'My daughter's not cold now,' she thought. 'she's wearing my hair.'
+  She sent the money to the Thénardiers. ``My daughter's not cold now,'' she thought. ``she's wearing my hair.''
 
   \switchcolumn
 
@@ -685,7 +679,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  Soon another letter came from the Thénardiers: 'Send one hundred francs, or Cosette must leave our house.'
+  Soon another letter came from the Thénardiers: ``Send one hundred francs, or Cosette must leave our house.''
 
   \switchcolumn
 
@@ -727,7 +721,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  A tall policeman arrived, took the woman by the arm, and pulled her away. 'Come with me,' he said.
+  A tall policeman arrived, took the woman by the arm, and pulled her away. ``Come with me,'' he said.
 
 
   This policeman was inspector Javert. He was new to Montreuil, and he was a hard man. To him, the law was the only important thing in life, and he hated criminals\footnote{\textbf{criminal}: n. someone who is involved in illegal activities 罪犯}.
@@ -749,12 +743,12 @@ sort-field={name}
 
   \switchcolumn*
 
-  'You hit a man in the street, and that's a crime\footnote{\textbf{crime}: n. an illegal action 罪行},' he told her. 'You're getting six months.'
+  ``You hit a man in the street, and that's a crime\footnote{\textbf{crime}: n. an illegal action 罪行},'' he told her. ``You're getting six months.''
 
 
-  'Six months in prison?' Fantine cried. 'No! I'm not a bad woman, Monsieur, please! I must work, I need the money for my little daughter. Please, please don't send me to prison!' She fell to the floor, crying.
+  ``Six months in prison?'' Fantine cried. ``No! I'm not a bad woman, Monsieur, please! I must work, I need the money for my little daughter. Please, please don't send me to prison!'' She fell to the floor, crying.
 
-  'Take her away,' Javert said to a policeman.
+  ``Take her away,'' Javert said to a policeman.
 
   \switchcolumn
 
@@ -767,7 +761,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'One moment, please,' said a new voice\footnote{\textbf{voice}: n. the sounds that you make when you speak 说话声，嗓音}
+  ``One moment, please,'' said a new voice\footnote{\textbf{voice}: n. the sounds that you make when you speak 说话声，嗓音}
   .
 
   Everybody turned to look at the door, and there stood the good, the great Monsieur Madeleine. He was an important man in Montreuil.
@@ -780,9 +774,9 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Inspector,' he said. 'I was outside the restaurant too, and I can tell you
-  the true story. The young man began the fight, and this poor woman' --- he
-  looked at Fantine on the floor --- 'must go free. She did nothing wrong.'
+  ``Inspector,'' he said. ``I was outside the restaurant too, and I can tell you
+  the true story. The young man began the fight, and this poor woman'' --- he
+  looked at Fantine on the floor --- ``must go free. She did nothing wrong.''
 
   \switchcolumn
 
@@ -790,10 +784,10 @@ sort-field={name}
 
   \switchcolumn*
 
-  'The woman is a criminal,' said Javert angrily. 'She ---'
+  ``The woman is a criminal,'' said Javert angrily. ``She ---''
 
 
-  'She must go free,' said Monsieur Madeleine. 'Ask the other people at the restaurant. We all saw the same thing.'
+  ``She must go free,'' said Monsieur Madeleine. ``Ask the other people at the restaurant. We all saw the same thing.''
 
 
   \switchcolumn
@@ -817,7 +811,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'My dear child, you are not well,' he said.
+  ``My dear child, you are not well,'' he said.
 
   \switchcolumn
 
@@ -828,11 +822,11 @@ sort-field={name}
   Javert's cold eyes stared at Monsieur Madeleine.
 
 
-  'Do I know you from somewhere?' he said. 'Were you ever at Toulon?'
+  ``Do I know you from somewhere?'' he said. ``Were you ever at Toulon?''
 
 
   Monsieur Madeleine looked at him. His face did not change, but his eyes were Suddenly very watchful\footnote{\textbf{watchful}: adj. very careful to notice what is happening 警惕的}
-  . 'No, I don't know Toulon,' he said.
+  . ``No, I don't know Toulon,'' he said.
 
   \switchcolumn
 
@@ -857,7 +851,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Now, you must get better,' he told Fantine. 'Cosette needs you.'
+  ``Now, you must get better,'' he told Fantine. ``Cosette needs you.''
 
 
   But Fantine did not get better. She was now very ill, and five days later the doctor spoke to Monsieur Madeleine.
@@ -871,13 +865,13 @@ sort-field={name}
 
   \switchcolumn*
 
-  'Does she have a child, this poor woman?' he said.
+  ``Does she have a child, this poor woman?'' he said.
 
 
-  'Yes, a small daughter.'
+  ``Yes, a small daughter.''
 
 
-  'You must bring the child here –- soon.'
+  ``You must bring the child here –-- soon.''
 
   \switchcolumn
 
@@ -893,7 +887,7 @@ sort-field={name}
 
   Monsieur Madeleine went to sit by Fantine's bed.
 
-  'Monsieur Madeleine' –- cough, cough –- 'you are so' –- cough, cough –- 'kind to me. I want to see my daughter, one last time. Please can you' –- cough, cough, cough -– 'bring Cosette to me? Please, Monsieur!'
+  ``Monsieur Madeleine'' –-- cough, cough –-- ``you are so'' –-- cough, cough –-- ``kind to me. I want to see my daughter, one last time. Please can you'' -–- cough, cough, cough --– ``bring Cosette to me? Please, Monsieur!''
 
   \switchcolumn
 
@@ -904,8 +898,8 @@ sort-field={name}
 
   \switchcolumn*
 
-  Monsieur Madeleine took her hand. 'Of course I can,' he said gently, 'and
-  then ---'
+  Monsieur Madeleine took her hand. ``Of course I can,'' he said gently, ``and
+  then ---''
 
   \switchcolumn
 
@@ -914,7 +908,7 @@ sort-field={name}
   \switchcolumn*
 
   The door of the room Suddenly opened behind him, and Fantine cried out\footnote{\textbf{cry out}: to make a loud sound of fear, pain etc （因害怕、疼痛等）叫喊}
-  , 'No! No!'
+  , ``No! No!''
 
   \switchcolumn
 
@@ -925,9 +919,9 @@ sort-field={name}
   Monsieur Madeleine looked round quickly. Inspector Javert came into the room, with four policemen.
 
 
-  'Jean Valjean, prisoner at Toulon, I am arresting\footnote{\textbf{arrest}:  v. to take a person to a police station because the police think they have done something illegal 逮捕}
-  you,' Javert said. 'After you left the prison, you stole money from a child in Toulon. You are still a thief, and now you must go to prison for life\footnote{\textbf{for life}: for the rest of one's lifetime 终生}
-  .'
+  ``Jean Valjean, prisoner at Toulon, I am arresting\footnote{\textbf{arrest}:  v. to take a person to a police station because the police think they have done something illegal 逮捕}
+  you,'' Javert said. ``After you left the prison, you stole money from a child in Toulon. You are still a thief, and now you must go to prison for life\footnote{\textbf{for life}: for the rest of one's lifetime 终生}
+  .''
 
   \switchcolumn
 
@@ -938,7 +932,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  Fantine sat up in bed. 'No!' she cried. 'Cosette...!'
+  Fantine sat up in bed. ``No!'' she cried. ``Cosette...!''
 
   \switchcolumn
 
@@ -946,7 +940,7 @@ sort-field={name}
 
   \switchcolumn*
 
-  Monsieur Madeleine stood up slowly. 'Inspector, give me three days,' he said. He was a big man, much bigger than Javert. 'Three days, to bring this poor woman's child to her before she dies. Then you can take me.'
+  Monsieur Madeleine stood up slowly. ``Inspector, give me three days,'' he said. He was a big man, much bigger than Javert. ``Three days, to bring this poor woman's child to her before she dies. Then you can take me.''
 
   \switchcolumn
 
@@ -954,12 +948,13 @@ sort-field={name}
 
   \switchcolumn*
 
-  Javert laughed loudly. 'Three days! You're going to run away!'
+  Javert laughed loudly. ``Three days! You're going to run away!''
 
-  Behind the two men, Fantine cried out, 'Monsieur Madeleine, please take care of\footnote{\textbf{take care of}:  to look after someone or something 照顾；照管}
-  Cosette, oh please...'
+  Behind the two men, Fantine cried out, ``Monsieur Madeleine, please take
+  care of\footnote{\textbf{take care of}: to look after someone or something
+    照顾；照管} Cosette, oh please...''
 
-  Javert turned to her. 'Be quiet, woman! There's no Monsieur Madeleine here. This man is a criminal, called Jean Valjean, and he's going to prison!'
+  Javert turned to her. ``Be quiet, woman! There's no Monsieur Madeleine here. This man is a criminal, called Jean Valjean, and he's going to prison!''
 
   Fantine stared at Javert, and tried to speak, but she could not. She fell back in the bed, and lay still.
 
@@ -1003,12 +998,330 @@ sort-field={name}
 
 \end{paracol}
 
+\clearpage
+
+\begin{paracol}{2}
+
+  \section{Cosette}
+
+  \subsection*{FOREWORD}
 
 
+  Monsieur Madeleine is, of course, Jean Valjean. You knew that already. After Digne, he sells the bishop's silver plates (but keeps the candlesticks). He comes to Montreuil, builds his factory, works hard, is kind to other people... He makes a new, good life, and is true to the Bishop of Digne.
 
-% \printunsrtglossary[style={mcolindexgroup},title={Glossary 词汇表}] %
-% \printunsrtglossary[style={indexgroup}]
-% \printunsrtglossary
+  \switchcolumn
+
+  \section*{珂赛特}
+
+  \subsection*{引言}
+
+  马德兰先生当然就是冉阿让。这你已经知道了。离开迪涅之后，他把主教的银餐盘卖了（但是留下了烛台）。他来到蒙特勒伊，建起了自己的工厂，辛苦工作，对人友善……他过上了诚实的新生活，成为了迪涅主教期望他成为的那种人。
+
+  \switchcolumn*
+
+  But after Valjean left prison in Toulon, and before he came to Digne, he was hungry. And in a street in Toulon he stole some money from a boy. Just one franc... to buy bread. Because he did this, the law in France says that prisoner Valjean must go back to prison, and stay there for life. He can never be a free man again.
+
+  \switchcolumn
+
+  但在冉阿让离开土伦监狱、还没到迪涅之前，他一直饿着肚子。在土伦的一条街上，他从一个男孩那里偷了些钱。就一法郎……为了买面包吃。就因为他干了这件事，法国的法律规定囚犯冉阿让必须再进监狱，坐一辈子的牢。他再也不可能获得自由了。
+
+  \switchcolumn*
+
+  And so we meet Javert. Before Montreuil, he was a prison guard at Toulon. The law is his god, and he hates all criminals. He remembers Jean Valjean, that big strong man, very well. He wants to see him in prison again. And he, Inspector Javert, is going to put him there.
+
+  \switchcolumn
+
+  于是我们遇到了沙威。来蒙特勒伊之前，他是土伦的一个监狱看守。法律是他的上帝，他痛恨一切罪犯。他对那个人高马大的壮汉冉阿让记得一清二楚。他一心想要看到他再进监狱。而他，沙威督察，一定会把他送进牢里的。
+
+  \switchcolumn*
+
+  Jean Valjean remembers Javert now. He remembers the cold eyes, the hard voice, the cruel prison guard's smile. He remembers... And is afraid. He knows that Javert is his enemy\footnote{\textbf{enemy}: n. someone who hates you and wants to harm you 敌人}
+ for life.
+
+  \switchcolumn
+
+  冉阿让现在也记起了沙威。他认得那双冷酷的眼睛、严厉的声音，以及这个残忍的监狱看守脸上的笑容。他记得……而且他感到害怕。他知道沙威是他这辈子的死敌。
+
+  \switchcolumn*
+
+  But he remembers Fantine too. He remembers her dying words – Please take care of Cosette, please... How can he leave this little girl, without a mother, without a friend in the world? He must find her – Javert, or no Javert.
+
+  \switchcolumn
+
+  但是他也记得芳汀。他记得她临死前的话——求您照顾珂赛特，求求您……这个小女孩没有了妈妈，在这世上也没有一个朋友，他怎么能丢下她不管呢？他必须找到她——管他沙威不沙威。
+
+
+  \switchcolumn*
+
+  \sectionbreak
+
+  Monsieur and Madame Thénardier lived in a village called Montfermeil near Paris. There was no water in the village, and the nearest water was a small river in a wood\footnote{\textbf{wood}: n. a small forest 小树林}
+ fifteen minutes' walk away. People carried the water in buckets\footnote{\textbf{bucket}: n. an open container used especially for carrying liquids 桶}
+ to their houses.
+
+  \switchcolumn
+
+  \sectionbreak
+
+  德纳第先生和夫人住在巴黎附近一个叫孟费的村子里。村子里没有水源，最近的水源是树林里的一条小河，离村子有十五分钟的路程。村民都要拎桶打水回家。
+
+  \switchcolumn*
+
+  Cosette hated that wood. At night, the trees made noises. She was frightened\footnote{\textbf{frightened}: adj. feeling afraid 害怕的}
+ of the noises, frightened of the dark, and with a heavy bucket of water, it was a long walk home.
+
+  \switchcolumn
+
+  珂赛特痛恨那个树林。夜晚，树木发出声响。珂赛特害怕那种声响，害怕黑暗。她手里拎着沉沉的一桶水，令回家的路变得很漫长。
+
+  \switchcolumn*
+
+  One dark winter night in 1823, Madame Thénardier sent Cosette out to the river for water. Cosette ran to the river and then, with her heavy bucket of water, she began to walk home. The trees were noisy tonight, whispering and laughing at her, and the little girl began to cry.
+
+  \switchcolumn
+
+  1823年一个漆黑的冬夜，德纳第夫人叫珂赛特到河边去打水。珂赛特跑到河边，打了水后，拎着沉沉的水桶往家走。今天晚上树木发出的声音很响，它们在一边低语，一边嘲笑她，这个小女孩开始哭了起来。
+
+
+  \switchcolumn*
+
+  ``Oh please God, help me! Please, dear God!''
+
+  \switchcolumn
+
+  “噢，上帝啊，求您救救我吧！求您了，亲爱的上帝！”
+
+  \switchcolumn*
+
+  And suddenly, the bucket was gone. A great hand came down and took it from her. She looked up and saw a big man in an old yellow coat.
+
+  \switchcolumn
+
+  突然，她手里的水桶不见了。一只大手伸了过来，把水桶接了过去。她抬起头来，看见一个穿着黄色旧外套的大个子男人。
+
+  \switchcolumn*
+
+  Sometimes we know, without words, when something good is happening. The little girl knew that now, and she was not frightened of the big man, not a bit.
+
+  \switchcolumn
+
+  有时候，不用说话我们也会知道好事正降临在自己身上。小女孩现在就有这种预感，她不害怕这个大个子男人，一点儿也不。
+
+  \switchcolumn*
+
+  The man spoke to her. ``Child, this is a very heavy bucket. Shall I carry it for you?''
+
+
+  ``Yes, Monsieur.''
+
+
+  ``How old are you?''
+
+
+  ``I'm eight years old, Monsieur.''
+
+
+  ``Where is your mother?''
+
+
+  ``I don't know,'' said the child. ``I haven't got a mother.''
+
+
+  ``What's your name?''
+
+
+  ``Cosette.''
+
+  \switchcolumn
+
+  那个男人开口跟她说话：“孩子，这桶水很沉啊。我来帮你拎，好吗？”
+
+  “好的，先生。”
+
+  “你几岁了？”
+
+  “我八岁了，先生。”
+
+  “你的妈妈在哪儿呢？”
+
+  “我不知道。”这孩子说道，“我没有妈妈。”
+
+  “你叫什么名字？”
+
+  “珂赛特。”
+
+  \switchcolumn*
+
+  The big man stopped. He put the bucket down and looked into Cosette's face.
+
+
+  ``Why are you carrying a heavy bucket of water at this time of night? Who sent you?''
+
+
+  ``Madame Thénardier.''
+
+
+  ``I would like to talk to this Madame Thénardier. Shall we go and see her?''
+
+
+  ``Yes, Monsieur.''
+
+  \switchcolumn
+
+  那个大个子男人停下了脚步。他放下水桶，审视珂赛特的脸。
+
+  “天这么晚了，你为什么还要拎这么沉的一桶水？谁让你去打水的？”
+
+  “德纳第夫人。”
+
+  “我想和这个德纳第夫人谈谈。我们去找她，好吗？”
+
+  “好的，先生。”
+
+  \switchcolumn*
+
+  Cosette was not afraid of the tree noises now. This big man, with his gentle voice, was a new and wonderful thing in her life. They walked to the Thénardiers' house.
+
+  \switchcolumn
+
+  珂赛特现在不再害怕树木发出的声响了。这个说话声音温柔的大个子男人，成了她生命中一件美好的新事物。他们走到德纳第夫妇的房子前。
+
+  \switchcolumn*
+
+  ``Please, Monsieur, can I carry the bucket now?''
+
+  ``But why?''
+
+
+  ``I can't ask people for help, Madame says. She hits me when I do that,'' Cosette said. ``she hits me all the time.''
+
+  He gave her the bucket.
+
+  \switchcolumn
+
+  “先生，现在让我来拎水桶，好吗？”
+
+  “可为什么呢？”
+
+  “夫人说，我不能叫别人帮忙。我要是叫人帮忙，她就会打我。”珂赛特说。“她常常打我。”
+
+  他把水桶给了她。
+
+  \switchcolumn*
+
+  The Thénardiers were very surprised to see Cosette's new friend, this big man in the old yellow coat.
+
+  \switchcolumn
+
+  见到珂赛特的新朋友，这个穿着黄色旧外套的大个子男人，德纳第夫妇非常吃惊。
+
+  \switchcolumn*
+
+  Inside the house, the big man looked at Cosette. He saw her thin clothes, her dirty hair, her big frightened eyes. She was small for her eight years. Her hands were red from kitchen work, and she had no shoes.
+
+  \switchcolumn
+
+  进了屋子，这个大个子男人打量起珂赛特来。他看见她衣衫单薄，头发肮脏，一双惊恐的眼睛睁得大大的。她看起来比寻常八岁的孩子瘦小，双手因为一直在厨房里干活儿而变得通红，脚上连鞋子都没有。
+
+  \switchcolumn*
+
+  ``Why does this child have no shoes on her feet, on this cold winter night?'' he said to Madame Thénardier.
+
+
+  Madame Thénardier looked at Cosette angrily. ``Go into the kitchen, Cosette. There is work to do. Go!''
+
+
+  ``And who are you?'' Monsieur Thénardier said.
+
+
+  ``I am here for Fantine, the child's mother,'' said the big man. ``You don't need to know my name. Fantine is dead, so you can get no more money from her. Here'' – he put some money on the table – ``is 1500 francs. Now call the child. I'm taking her away.''
+
+  \switchcolumn
+
+  “冬天这么冷的晚上，这个孩子为什么没有鞋穿？”他问德纳第夫人。
+
+  德纳第夫人气冲冲地瞪着珂赛特：“到厨房去，珂赛特。还有活儿要干。快去！”
+
+  “你是谁？”德纳第先生问道。
+
+  “我是替孩子的母亲芳汀来的。”大个子男人说，“你不需要知道我的名字。芳汀死了，你们从她那里再也弄不到钱了。这个给你们”——他把一些钱放在桌子上——“这是1500法郎。现在把孩子叫来，我要把她带走。”
+
+  \switchcolumn*
+
+  \sectionbreak
+
+  When Jean Valjean and Cosette left Montfermeil, Cosette did not look back. She never wanted to see Madame Thénardier again.
+
+  \switchcolumn
+
+  \sectionbreak
+
+  冉阿让和珂赛特离开孟费村的时候，珂赛特没有回头望。她再也不想见到德纳第夫人了。
+
+  \switchcolumn*
+
+  She put her cold little hand into Valjean's great hand, and looked up into his face. ``Monsieur,'' she said, ``can I... can I call you Father?''
+
+  \switchcolumn
+
+  她把自己冰冷的小手放进冉阿让的大手里，抬头看着他的脸。“先生，”她说，“我能……我能叫你爸爸吗？”
+
+  \switchcolumn*
+
+  Valjean looked down at her big round eyes. ``Yes,'' he said. He did not know love, he did not understand love, but in that moment, suddenly, he felt a father's love for this small child.
+
+  \switchcolumn
+
+  冉阿让低头望着她那双圆圆的大眼睛。“可以。”他说。他不知道什么是爱，也不懂爱，可是在那一刻，他突然感受到了对这个小孩父亲般的爱。
+
+  \switchcolumn*
+
+  ``Yes,'' he said again. ``Yes, you can call me Father. It's a good name.''
+
+
+  Hand in hand, they walked away on the road to Paris.
+
+  \switchcolumn
+
+  “可以，”他再次说道，“可以，你可以叫我爸爸。听起来真不错。”
+
+  他们手拉着手，上路往巴黎而去。
+
+  \switchcolumn*
+
+  \sectionbreak
+
+  In Paris Cosette learnt to laugh, and to sing like a bird, and to be happy. Jean Valjean learnt to be father and mother to this child, and he loved her dearly.
+
+  \switchcolumn
+
+  \sectionbreak
+
+  在巴黎，珂赛特学会了欢笑，学会了像小鸟一样歌唱，学会了快乐。冉阿让学会了当起这个孩子的父母，他非常疼爱她。
+
+  \switchcolumn*
+
+  But they lived quietly, moved house often, and only went out at night. Because Javert, too, was in Paris. When Valjean escaped from Montreuil, Javert came to Paris to look for him. He was now an important inspector in the Paris police. Every criminal in Paris was afraid of inspector Javert.
+
+  \switchcolumn
+
+  不过，他们过着不引人注意的生活，常常搬家，并且只在天黑之后外出。这都是因为沙威也在巴黎。冉阿让从蒙特勒伊逃走之后，沙威就来到巴黎追捕他。他现在是巴黎警局中一位重要的督察。巴黎的每个罪犯都害怕沙威督察。
+
+  \switchcolumn*
+
+  Once, Valjean saw Javert by the river, and the next day he looked for a new place to live. He found one, behind the high walls of a girls' school. The school gave Valjean a job as a gardener, and he lived in a little house in the big gardens. Cosette lived in the school. But every day she came to the gardener's little house for one hour. They talked, and they sang, and they read books. It was the happiest hour in the day for her and for Jean Valjean.
+
+  And so the years passed.
+
+  \switchcolumn
+
+  有一次，冉阿让在河边看见了沙威，他第二天就去找新住处。他在一所女子学校的高墙内找到了住处。学校雇了冉阿让当花匠，他就住进了大花园里的一座小屋。珂赛特住在学校里。不过，她每天都会到花匠的小屋呆一个小时。他们一起聊天，一起唱歌，一起看书。对她和冉阿让来说，这是一天中最幸福的时光。
+
+  就这样，一年一年过去了。
+
+\end{paracol}
+
+
 
 \end{document}
 
