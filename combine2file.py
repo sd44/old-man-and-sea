@@ -37,4 +37,4 @@ def combin_file(enfile, cnfile):
 
 
 if __name__ == '__main__':
-    combin_file('testdoc/theoldman.tex', 'testdoc/老人与海.txt')
+    combin_file('testdoc/theoldman2.tex', 'testdoc/老人与海.txt')
