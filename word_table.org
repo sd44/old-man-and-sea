@@ -1,0 +1,4 @@
+| word   | phonetic | desc                | pl      | v-ing  | v-ed |
+|--------+----------+---------------------+---------+--------+------|
+| have   | həv      | v. 拥有，持有       | has     | having | had  |
+| phonic | ˈfɒnɪk   | a. 语音，拼读有关的 | phonics |        |      |
