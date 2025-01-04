@@ -1,0 +1,28 @@
+@Comment {don't forget add follow lines to tex file
+
+\usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
+
+\let\glsing\glsuseri
+\let\glsd\glsuserii
+
+\newcommand*{\ving}{user1}
+\newcommand*{\ved}{user2}
+}
+
+@index{have,
+        name = {have},
+        description = {\doulos{həv} v. 拥有，持有},
+        plural = {has},
+        \ving = {having},
+        \ved = {had},
+        see={'d},
+}
+
+
+@index{phonic,
+        name = {phonic},
+        description = {\doulos{ˈfɒnɪk} a. 语音，拼读有关的},
+        plural = {phonics},
+        \ving = {},
+        \ved = {},
+}

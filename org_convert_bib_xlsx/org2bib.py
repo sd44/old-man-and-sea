@@ -21,7 +21,7 @@ def generate_org_table(table):
     return "\n".join(formatted_rows)
 
 
-def table2bib(table_file, bib_file):
+def org2bib(table_file, bib_file):
     rows = []
     with open(table_file, 'r') as f:
         content = f.read()
@@ -49,6 +49,7 @@ def table2bib(table_file, bib_file):
 
 
 if __name__ == '__main__':
-    table_file = pathlib.Path('word_table.org')
+    table_file = pathlib.Path('example_word.org')
     bib_file = pathlib.Path('table.bib')
-    table2bib(table_file, bib_file)
+    org2bib(table_file, bib_file)
+    print(f"Converted {table_file} to {bib_file}")
