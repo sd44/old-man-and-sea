@@ -21,7 +21,7 @@ def combin_file(enfile, cnfile):
     a = read_file_by_blankline(enfile)
     b = read_file_by_blankline(cnfile)
 
-    comb_file = 'output.tex'
+    comb_file = 'theoldman_cn_en.tex'
 
     if len(a) != len(b):
         print(f'Warning:\n {enfile}: {len(a)}段落, but {cnfile}: {len(b)}段落\n')
@@ -31,10 +31,10 @@ def combin_file(enfile, cnfile):
 
         for i in zip(a, b):
             comb.writelines('\n'.join(
-                ('', swith_en_col, i[0], swith_cn_col, i[1])))
+                ('', i[0], swith_cn_col, i[1], swith_en_col)))
 
         comb.writelines(paracol_end)
 
 
 if __name__ == '__main__':
-    combin_file('theoldman2.tex', '老人与海.txt')
+    combin_file('theoldman_en.tex', '老人与海.txt')

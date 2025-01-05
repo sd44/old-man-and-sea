@@ -1,4 +1,4 @@
-\documentclass[fontset=ubuntu,zihao=-4]{ctexrep}
+\documentclass[fontset=ubuntu,zihao=5]{ctexart}
 \usepackage{xeCJKfntef}
 
 % \usepackage{imakeidx}
@@ -41,7 +41,7 @@
   a4paper,
   heightrounded,
   includemp = false, % includes the margin notes, \marginparwidth and \marginparsep, into body when calculating horizontal calculation.
-  inner = 2.7cm,
+  inner = 2.5cm,
   outer = 2.2cm,
   % marginparwidth = 80pt,
   top = 2.5cm,
@@ -85,21 +85,30 @@ sort-field={name}
 % \renewcommand{\glsxtrregularfont}[1]{\underline{#1}}
 % \renewcommand{\glsxtrabbreviationfont}[1]{\textbf{#1}}
 
-\let\glsing\glsuseri
-\let\glsd\glsuserii
-\newcommand*{\ving}{user1}
-\newcommand*{\ved}{user2}
-%%%%%%%%%%%% example bib %%%%%
-% \newglossaryentry{#2}{%
-% name={#2},%
-% description={#3},%
-% \edkey={#2ed},%
-% \ingkey={#2ing},#1%
-% }}
-%%%%%%%%%%%% end %%%%%
+% Define "ed" key:
+\glsaddkey* {ed}% key
+{\glsentrytext{\glslabel}ed}% default value
+{\glsentryed}% command analogous to \glsentrytext
+{\Glsentryed}% command analogous to \Glsentrytext
+{\glsed}% command analogous to \glstext
+{\Glsed}% command analogous to \Glstext
+{\GLSed}% command analogous to \GLStext
+
+% Define "ing" key:
+\glsaddkey* {ing}% key
+{\glsentrytext{\glslabel}ing}% default value
+{\glsentrying}% command analogous to \glsentrytext
+{\Glsentrying}% command analogous to \Glsentrytext
+{\glsing}% command analogous to \glstext
+{\Glsing}% command analogous to \Glstext
+{\GLSing}% command analogous to \GLStext
 
 \usepackage{paracol}
-\footnotelayout{p}
+\footnoteplacement{p}
+
+\setcolumnwidth{0.54\textwidth,0.44\textwidth}
+% \setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{15pt}
 
 % 自定义图片环境，包含纵向两个图片。注意这一自定义命令限制较多，需调整参数，
 % 防止溢出。使用方法为
@@ -180,17 +189,25 @@ sort-field={name}
 \begin{document}
 
 \maketitle
-\ctexset{chapter/numbering=false}
+\ctexset{section/numbering=false}
 
 %% 目录
 \tableofcontents
 
-\chapter{《老人与海》相关图鉴}
+\clearpage
+\section{《老人与海》相关图鉴}
 
 \begin{figure}[ht!]
   \centering
-  \includegraphics[width=0.82\textwidth]{fish/coast.png}
+  \includegraphics[width=0.85\textwidth]{fish/coast.png}
   \caption{\label{fig:coast}海滨各部分图例}
+\end{figure}
+\clearpage
+
+\begin{figure}[ht!]
+  \centering
+  \includegraphics[width=0.85\textwidth]{fish/ship.jpg}
+  \caption{\label{fig:ships}船只各部分图鉴}
 \end{figure}
 \clearpage
 
@@ -229,7 +246,8 @@ sort-field={name}
   \includegraphics[width=0.95\textwidth]{fish/heming5.jpg} \caption{\label{fig:heming5}1955年，古巴科伊马尔的渔民带回了一条马林鱼}
 \end{figure}
 
-\input{theoldman2.tex}
+\clearpage
+\input{tmp.tex}
 
 
 \printunsrtglossary[style={mcolindexgroup },title={Glossary 词汇表}]

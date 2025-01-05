@@ -39,8 +39,8 @@ def org2bib(table_file, bib_file):
         name = {{{row[0]}}},
         description = {{{ipa}{row[2]}}},
         plural = {{{row[3]}}},
-        ving = {{{row[4]}}},
-        ved = {{{row[5]}}}
+        ing = {{{row[4]}}},
+        ed = {{{row[5]}}}
 }}
         '''
         rows.append(bib_filed)

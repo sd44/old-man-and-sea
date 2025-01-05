@@ -73,8 +73,8 @@ def bib2org(bibfile, orgfile):
             desc = desc[ipa_matches.end():]
 
         plural = get_bibparser_val(word_dict, 'plural')
-        ving = get_bibparser_val(word_dict, r'\ving')
-        ved = get_bibparser_val(word_dict, r'\ved')
+        ving = get_bibparser_val(word_dict, r'ing')
+        ved = get_bibparser_val(word_dict, r'ed')
         see = get_bibparser_val(word_dict, 'see')
 
         line = '|'.join((word, ipa, desc, plural, ving, ved, see))
