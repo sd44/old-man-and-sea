@@ -16,7 +16,11 @@
 
 \newcommand\doulos[1]{{\fontspec{Doulos SIL} /#1/}}
 
-\RequirePackage{microtype} % 改善单词、字母间距
+\usepackage{microtype} % 改善单词、字母间距
+
+\usepackage[bodytextleadingratio = 1.68, restoremathleading = true,
+footnoteleadingratio = 1.6]{zhlineskip}
+
 \usepackage{verse}
 
 % from package hyperref
@@ -29,7 +33,7 @@
   bookmarksnumbered = true,
   bookmarksdepth = section,
   bookmarksopen = true,
-  pdftitle = {老人与海词汇注解},
+  pdftitle = {老人与海 词汇注解},
   pdfauthor = {蛋疼的蛋蛋},
   pdfcreator = {sd44sd44@yeah.net},
 }
@@ -191,6 +195,8 @@ sort-field={name}
 \maketitle
 \ctexset{section/numbering=false}
 
+\newgeometry{inner=3cm,outer=2.8cm}
+
 %% 目录
 \tableofcontents
 
@@ -252,6 +258,7 @@ sort-field={name}
 \end{figure}
 
 \clearpage
+\restoregeometry
 \input{tmp.tex}
 
 
