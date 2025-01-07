@@ -35,14 +35,17 @@ def org2bib(table_file, bib_file):
             ipa = ''
 
         bib_filed = f'''
-@index{{{word}}},
-        name = {{{row[0]}}},
-        description = {{{ipa}{row[2]}}},
-        plural = {{{row[3]}}},
-        ing = {{{row[4]}}},
-        ed = {{{row[5]}}}
-}}
-        '''
+@index{{{word},
+    name = {{{row[0]}}},
+    description = {{{ipa}{row[2]}}},
+'''
+        if row[3]:
+            bib_filed += f'    plural = {{{row[3]}}},\n'
+        if row[4]:
+            bib_filed += f'    ing = {{{row[4]}}},\n'
+        if row[5]:
+            bib_filed += f'    ed = {{{row[5]}}},\n'
+        bib_filed = bib_filed + '}\n'
         rows.append(bib_filed)
     with open(bib_file, 'w') as f:
         f.write('\n'.join(rows))
