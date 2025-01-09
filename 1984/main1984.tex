@@ -1,0 +1,231 @@
+\documentclass[fontset=ubuntu,zihao=-4]{ctexart}
+\usepackage{xeCJKfntef}
+
+% \usepackage{imakeidx}
+% \indexsetup{level=\section*, toclevel=section}
+% \makeindex[title=索引, columns=2, intoc, columnseprule=true]
+
+\usepackage{amsmath}
+\usepackage[math-style=ISO, bold-style=ISO]{unicode-math} %注意，unicode-math与被其认为过时的bm包不兼容，不要\RequirePackage{bm}
+\setmathfont[Scale = 1.1]{TeX Gyre Pagella Math}  % 因Libertinus目前的数学字体暂还没
+% 有粗体，这里设置为允许伪粗体渲染。
+
+\setmainfont[Scale=1.1]{Libertinus Serif}
+\setsansfont[Scale=1.1]{TeX Gyre Heros}
+\setmonofont{Noto Sans Mono Condensed}
+
+\newcommand\doulos[1]{{\fontspec{Doulos SIL} /#1/}}
+
+\usepackage{microtype} % 改善单词、字母间距
+
+\usepackage[bodytextleadingratio = 1.68, restoremathleading = true,
+footnoteleadingratio = 1.6]{zhlineskip}
+
+\usepackage{verse}
+
+% from package hyperref
+\usepackage{hyperref}
+\hypersetup{%
+  colorlinks = true,
+  citecolor=magenta,
+  linkcolor=blue,
+  bookmarks=true,
+  bookmarksnumbered = true,
+  bookmarksdepth = section,
+  bookmarksopen = true,
+  pdftitle = {Nineteen Eighty-four},
+  pdfauthor = {蛋疼的蛋蛋},
+  pdfcreator = {sd44sd44@yeah.net},
+}
+
+
+\usepackage{geometry}
+
+\geometry{%
+  a4paper,
+  heightrounded,
+  includemp = false, % includes the margin notes, \marginparwidth and \marginparsep, into body when calculating horizontal calculation.
+  inner = 2.5cm,
+  outer = 2.2cm,
+  % marginparwidth = 80pt,
+  top = 2.5cm,
+  bottom = 2.5cm,
+  headheight = 6mm,
+  headsep = 10mm,
+  footskip = 10mm,
+}
+
+\usepackage{graphicx}
+\usepackage{soul}
+\usepackage{booktabs}
+\usepackage{multirow}
+\usepackage{tabularray}
+\usepackage{unicode-math}
+\usepackage{amsmath}
+\usepackage{ulem}
+\usepackage{emptypage}
+\usepackage{geometry}
+\usepackage{xcolor}
+
+\UseTblrLibrary{booktabs}
+\UseTblrLibrary{nameref}
+
+\RequirePackage{emptypage} %空白页没有页眉页脚
+
+\usepackage{csquotes}
+
+\AtBeginEnvironment{quotation}{\itshape }
+
+\usepackage{tikz}
+\usepackage[most]{tcolorbox}
+\newtcbox{\headline}[1][]{enhanced,center,
+ignore nobreak,fontupper=\scshape,
+colframe=red!50!black,colback=red!10!white,
+tikznode upper,#1}
+
+\newtcbox{\letter}[1]{colback=red!5!white,
+colframe=red!75!black,fonttitle=\bfseries,
+title={#1}}
+
+\usepackage[record=nameref,stylemods=mcols, style=treegroup]{glossaries-extra}
+% 重新定义 \seename
+\renewcommand*{\seename}{见}
+
+\GlsXtrLoadResources[
+src={oldman},
+selection=all,
+sort={en-GB},
+sort-field={name}
+]
+\renewcommand{\glossarypreamble}{\small}
+% \renewcommand{\glstextformat}[1]{\textcolor{violet}{#1}}
+\renewcommand{\glstextformat}[1]{\textbf{#1}}
+% \renewcommand{\glsxtrregularfont}[1]{\underline{#1}}
+% \renewcommand{\glsxtrabbreviationfont}[1]{\textbf{#1}}
+
+% Define "ed" key:
+\glsaddkey* {ed}% key
+{\glsentrytext{\glslabel}ed}% default value
+{\glsentryed}% command analogous to \glsentrytext
+{\Glsentryed}% command analogous to \Glsentrytext
+{\glsed}% command analogous to \glstext
+{\Glsed}% command analogous to \Glstext
+{\GLSed}% command analogous to \GLStext
+
+% Define "ing" key:
+\glsaddkey* {ing}% key
+{\glsentrytext{\glslabel}ing}% default value
+{\glsentrying}% command analogous to \glsentrytext
+{\Glsentrying}% command analogous to \Glsentrytext
+{\glsing}% command analogous to \glstext
+{\Glsing}% command analogous to \Glstext
+{\GLSing}% command analogous to \GLStext
+
+\usepackage[asterism, skip=5pt]{sectionbreak}
+
+\usepackage{paracol}
+\footnoteplacement{p}
+
+\setcolumnwidth{0.54\textwidth,0.44\textwidth}
+% \setlength{\columnseprule}{0.4pt}
+\setlength{\columnsep}{15pt}
+
+% 自定义图片环境，包含纵向两个图片。注意这一自定义命令限制较多，需调整参数，
+% 防止溢出。使用方法为
+% \dingphotoh{photo1name}{photo1cap}{photo1description}{photo2name}{photo2cap}{photo2description}
+\newcommand{\dingphotoh}[6] {
+  \begin{figure}[htbp!]
+    \centering
+    \includegraphics[width=0.73\textwidth]{fish/#1}
+    \caption{#2}\label{fig:#1}
+    \raggedright\small #3
+    \vfill \vspace{1cm}
+    \centering
+    \includegraphics[width=0.73\textwidth]{fish/#4}
+    \caption{#5}\label{fig:#4}
+    \raggedright\small #6
+  \end{figure}
+  \clearpage
+}
+
+
+\newlength{\drop}% for my convenience
+
+\makeatletter
+\def\subtitle#1{\gdef\@subtitle{#1}}
+\def\@subtitle{\@latex@warning{No \noexpand\subtitle given}}
+
+% \def\authornick#1{\gdef\@authornick{#1}}
+% \def\@authornick{\@latex@warning{No \noexpand\authornick given}}
+
+% \def\authorurl#1{\gdef\@authorurl{\url{#1}}}
+% \def\@authorurl{\@latex@warning{No \noexpand\authorurl given}}
+
+
+\def\maketitle{%
+  \thispagestyle{empty}
+  \null
+  \begingroup
+  \drop = 0.2\textheight
+  \centering
+  \vspace*{0.6\drop}
+  {\Huge \bfseries \itshape \@title}\\[2\baselineskip]
+  {\large \bfseries \@subtitle}\\[3\baselineskip]
+
+  \vspace*{0.8\drop}
+  {
+    \centering
+    \Large
+    \begin{tblr}{colspec={cc}}
+       &  \@author \\
+       & \@date \\
+    \end{tblr}
+
+  \vspace*{0.1\drop}
+   % \url{https://github.com/sd44/old-man-and-sea}
+
+  \vspace*{0.5\drop}
+  \kaishu{From Project Gutenberg,\\ For People and Project Gutenberg}
+  }
+\vspace*{0.5\drop}
+
+\endgroup
+\vfill\null
+\clearpage
+
+\begingroup
+\thispagestyle{empty}
+\null
+\newpage
+\endgroup
+}
+\makeatother
+
+\title{Nineteen Eighty-four}
+\subtitle{Project Gutenberg Canada ebook \#949}
+\author{George Orwell}
+\date{1949}
+
+\ctexset{
+  part/numbering=false,
+  section/numbering=false,
+  subsection/numbering=false}
+
+
+\begin{document}
+
+\maketitle
+\newgeometry{inner=3cm,outer=2.8cm}
+
+%% 目录
+\tableofcontents
+
+\clearpage
+
+\input{1984.tex}
+
+% \printunsrtglossary[style={mcolindexgroup },title={Glossary 词汇表}]
+% \printunsrtglossary[style={indexgroup}]
+
+
+\end{document}
