@@ -18,6 +18,10 @@
 
 \usepackage{microtype} % 改善单词、字母间距
 
+% 断字的数量受\hyphenpenalty的影响，将其设置为10000几乎可以防止断字。由于这会
+% 产生单词之间有更多空间的行，因此应该增加LaTeX的\tolerance。
+\hyphenpenalty=5000
+\tolerance=1000
 \usepackage[bodytextleadingratio = 1.68, restoremathleading = true,
 footnoteleadingratio = 1.6]{zhlineskip}
 
@@ -74,7 +78,7 @@ footnoteleadingratio = 1.6]{zhlineskip}
 
 \usepackage{csquotes}
 
-\AtBeginEnvironment{quotation}{\itshape }
+\AtBeginEnvironment{quotation}{\itshape \noindent}
 
 \usepackage{tikz}
 \usepackage[most]{tcolorbox}
@@ -126,7 +130,7 @@ sort-field={name}
 \usepackage{paracol}
 \footnoteplacement{p}
 
-\setcolumnwidth{0.54\textwidth,0.44\textwidth}
+\setcolumnwidth{0.54\textwidth,0.43\textwidth}
 % \setlength{\columnseprule}{0.4pt}
 \setlength{\columnsep}{15pt}
 
