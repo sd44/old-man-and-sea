@@ -4,6 +4,7 @@ data/auto/
 */output/
 figures/dingjia-orig/*
 */*.swp
+tmp.tex
 *.tdo
 *.glg
 *.glstex
